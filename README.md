@@ -1,8 +1,12 @@
-# YOUR PROJECT NAME
+# TBD
+
+[![Build](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/actions/workflows/build.yml)
 
 ## Contributors
-- PERSON
-- PERSON
+- Hanwen Liu
+- Isaiah Hashimoto
+- Gabriel Hsieh
+- Evan Pendleton
 
 ## Dependencies
 - JDK 11
