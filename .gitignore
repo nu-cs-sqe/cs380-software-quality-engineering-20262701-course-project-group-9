@@ -93,7 +93,7 @@ bin/
 ### VS Code ###
 ########################
 .vscode/
-.code-workspace
+*.code-workspace
 
 ########################
 ### Mac OS ###
@@ -127,3 +127,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Local Java toolchain cache
+.jdks/
+
+# Editor temporary files
+*.swp
+*.swo
+*~
