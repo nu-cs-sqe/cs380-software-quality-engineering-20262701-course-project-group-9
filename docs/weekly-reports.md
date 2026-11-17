@@ -27,3 +27,9 @@
 1. [done] Person: Task (Links to PR)
 2. [not started] Person: Task (Links to PR)
 3. [80% done] Person: Task (Links to PR)
+
+# Week 8 (11/16/2026-11/22/2026)
+**Planning and Progress Tracking**:
+1. [awaiting review] Isaiah Hashimoto: Configured Checkstyle, SpotBugs, JaCoCo, and PIT in PR #13. Full local and CI checks passed; teammate approval is pending.
+2. [in progress] Isaiah Hashimoto: Implement turn initialization using documented BVA and test-first commits. Keep player initialization in Austin's PR #8 separate until reviewed.
+3. [planned] Isaiah Hashimoto: Verify player/name/hand/turn alignment when the setup components can be integrated.
