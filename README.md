@@ -6,7 +6,6 @@
 - Hanwen Liu
 - Isaiah Hashimoto
 - Gabriel Hsieh
-- Evan Pendleton
 
 ## Dependencies
 - JDK 11
