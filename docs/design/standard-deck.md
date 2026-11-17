@@ -11,9 +11,12 @@ Split CardDistribution into small extraction, validation, dealing, and pile-buil
 ## BVA and acceptance
 | API | Cases | Implemented |
 | --- | --- | --- |
-| createCards | exact 56 cards and all 13 type counts; no extra types | No |
-| createCards | mutate result; next call independent | No |
-| GameSetup(count,names,start) | counts 2,3,4,5; first/last starting player; 8-card hands, N-1 kittens, conservation | No |
-| GameSetup(count,names,start) | invalid counts 1/6; invalid starting index -1/N; mismatched names | No |
+| createCards | exact 56 cards and all 13 type counts; no extra types | Yes |
+| createCards | mutate result; next call independent | Yes |
+| GameSetup(count,names,start) | counts 2,3,4,5; first/last starting player; 8-card hands, N-1 kittens, conservation | Yes |
+| GameSetup(count,names,start) | invalid counts 1/6; invalid starting index -1/N; mismatched names | Yes |
 
 Test-first: document and open draft, run failing tests with stubs, commit red, implement, run full quality suite. Refactor uses the existing regression tests. Dependencies: integration PR #15; approval needed before main merge.
+
+## Validation
+RED 68654a8: 9 cases ran, 6 failed (deck composition, independent mutable decks, and all four valid player counts); 3 existing validation cases already passed. GREEN c8e0efb: all 9 passed. After constructor refactoring, clean build qualityCheck passes all 98 tests, Checkstyle, SpotBugs, 131/131 lines, 46/46 branches, and 62/65 PIT mutants. The three survivors remain the two shuffle removals and the always-true Player.isAlive equivalent. No exclusions or thresholds changed.
