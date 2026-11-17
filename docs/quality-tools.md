@@ -33,3 +33,7 @@ course's BVA, draft PR, red/green commits, and teammate-review workflow.
 The full clean build and qualityCheck passed from IntelliJ: 40 tests, zero Checkstyle or SpotBugs findings, 100% JaCoCo line and branch coverage, and 38/40 PIT mutants killed (95%). The two surviving mutants remove Collections.shuffle calls in CardDistribution; the tests verify distribution constraints but do not establish randomness. No mutants are excluded to hide this gap.
 
 SpotBugs initially reported CT_CONSTRUCTOR_THROW in the four setup classes. Making these concrete classes final resolves the finalizer-subclass risk while preserving constructor validation and all existing tests. They are no longer subclassable. No new gameplay behavior is introduced.
+
+## Current local setup baseline
+
+The synchronized completion branch passed 98 tests, both linters, 131/131 lines, 46/46 branches, and 62/65 killed mutants. The two shuffle-removal survivors remain; Player.isAlive also has an equivalent always-true survivor until elimination is introduced. No mutants are excluded. This supersedes the earlier 40-test tooling baseline for current setup code.

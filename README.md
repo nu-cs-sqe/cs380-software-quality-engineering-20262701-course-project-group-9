@@ -23,3 +23,7 @@ N/A
 ## Quality checks
 
 Run `./gradlew clean build qualityCheck --continue`. See [quality tools](docs/quality-tools.md) for tasks, reports, and the verified baseline.
+
+## Project documentation
+
+See the [documentation index](docs/README.md) and [weekly report](docs/weekly-report/report.md).

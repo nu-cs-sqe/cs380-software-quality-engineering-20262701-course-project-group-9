@@ -52,8 +52,13 @@
 - [verified locally] Synchronized completion branch: 98 tests, Checkstyle, SpotBugs, 100% line/branch coverage, and 62/65 PIT mutations killed. Full clean build and qualityCheck passed.
 
 **Outstanding course documentation**:
-- Integration and i18n proposals are in [game setup](../design/game-setup.md) and [i18n plan](../design/i18n-plan.md). Team discussion and project-board publication are not yet verified.
+- Detailed integration and i18n plans are complete locally in [integration testing](../testing/integration-plan.md) and [i18n](../design/i18n-plan.md), with [board-ready entries](../project-management/board-items.md). Team discussion and board publication remain pending.
 - Required instructor meeting completion is not verified.
 - Add actual meeting outcomes and agreed task owners; do not replace missing history with assumed activity.
 
 Earlier weeks are retrospective progress summaries updated with current merge outcomes. No unrecorded planning or meetings are claimed.
+
+## Documentation follow-up
+
+- Completed local setup requirements/use case, game-rule reference and variant note, architecture, detailed integration and i18n plans, per-class BVA for the new setup classes, documentation index, and course checklist.
+- No remote publication, invented meeting notes, or unagreed task assignments. See [course checklist](../course-checklist.md) for remaining team actions.
