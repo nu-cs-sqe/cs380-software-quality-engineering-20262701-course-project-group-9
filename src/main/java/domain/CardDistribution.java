@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CardDistribution {
+public final class CardDistribution {
 
     private static final String DEFUSE_CARD = "Defuse";
     private static final String EXPLODING_KITTEN_CARD = "Exploding Kitten";

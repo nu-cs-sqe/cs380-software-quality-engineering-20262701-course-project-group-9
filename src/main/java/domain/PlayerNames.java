@@ -4,7 +4,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerNames {
+public final class PlayerNames {
 
     private final List<String> names;
 
