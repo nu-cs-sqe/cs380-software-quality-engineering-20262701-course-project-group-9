@@ -9,7 +9,7 @@ public final class GameSetup {
     private final TurnInitialization turns;
 
     public GameSetup(int count, List<String> names, int start) {
-        this(count, names, List.of(), start);
+        this(count, names, StandardDeck.createCards(), start);
     }
 
     public GameSetup(int count, List<String> names, List<String> deck, int start) {
