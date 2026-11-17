@@ -19,6 +19,11 @@
 3. [80% done] Person: Task (Links to PR)
 4. etc.
 
+# Week 6 (11/02/2026-11/08/2026)
+**Planning and Progress Tracking**:
+1. [done] Hanwen Liu: Completed Player Name Management, including name validation, default name generation, BVA documentation, and JUnit tests. PR #5 was merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/5)
+2. [in progress] Hanwen Liu: Refactored the PlayerNames constructor based on the instructor's Week 6 code review feedback by extracting validation and initialization into separate private methods. All 15 existing JUnit tests passed. Submitted PR #7 for review. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/7)
+3. [done] Hanwen Liu: Implemented Player Initialization using TDD. Added Player and PlayerInitializer classes to create player objects with unique IDs, names, alive status, and empty hands.
 # One section per week until the last week of class (the week before the Finals week)
 
 
