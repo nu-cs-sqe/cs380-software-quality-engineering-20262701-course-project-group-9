@@ -24,3 +24,7 @@ Once PR #8 is approved, test setup for 2 and 5 players: IDs/names/hands/order al
 ## Development process
 
 This branch depends on tooling PR #13. Document BVA and open a draft PR first; commit and run failing JUnit tests against minimal stubs; then implement the behavior and rerun all quality tools. Teammate approval is required before merge.
+
+## Validation
+
+PR #14 contains the work. Commit e0a1d5e is the actual red state: all 23 new JUnit cases failed against the minimal stub. After implementation, clean build and qualityCheck passed with 63 tests, no lint findings, 100% JaCoCo line/branch coverage, and 48/50 PIT mutants killed (96%). All 10 mutants in TurnInitialization are killed; the two existing CardDistribution shuffle-call mutants remain.
