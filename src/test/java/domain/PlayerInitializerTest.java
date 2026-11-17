@@ -88,4 +88,42 @@ public class PlayerInitializerTest {
             assertTrue(player.getHand().isEmpty());
         }
     }
+
+    @Test
+    void threePlayersShouldBeCreated() {
+        assertEquals(3, new PlayerInitializer(3, List.of("A", "B", "C")).getPlayers().size());
+    }
+
+    @Test
+    void fourPlayersShouldBeCreated() {
+        assertEquals(4, new PlayerInitializer(4, List.of("A", "B", "C", "D")).getPlayers().size());
+    }
+
+    @Test
+    void returnedPlayerListShouldNotChangeInitializer() {
+        PlayerInitializer initializer = new PlayerInitializer(2, List.of("Alice", "Bob"));
+        initializer.getPlayers().clear();
+        assertEquals(2, initializer.getPlayers().size());
+    }
+
+    @Test
+    void namesShouldBeNormalizedAndCopied() {
+        List<String> names = new java.util.ArrayList<>(List.of(" Alice ", ""));
+        PlayerInitializer initializer = new PlayerInitializer(2, names);
+        names.clear();
+        assertEquals("Alice", initializer.getPlayers().get(0).getName());
+        assertEquals("Player 2", initializer.getPlayers().get(1).getName());
+    }
+
+    @Test
+    void mismatchedNameCountShouldBeRejected() {
+        assertThrows(IllegalArgumentException.class, () -> new PlayerInitializer(2, List.of("Alice")));
+    }
+
+    @Test
+    void returnedHandShouldNotChangePlayer() {
+        Player player = new Player(0, "Alice");
+        player.getHand().add("Skip");
+        assertTrue(player.getHand().isEmpty());
+    }
 }

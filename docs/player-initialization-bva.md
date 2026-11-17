@@ -63,3 +63,18 @@ Development will follow TDD:
 2. Green: Implement the minimum code required.
 3. Refactor: Improve code while keeping all tests passing.
 
+
+## Review follow-up: implemented case map
+
+| Public API | Cases | Tests implemented |
+| --- | --- | --- |
+| PlayerInitializer(int, List) | counts 1, 2, 3, 4, 5, 6 (TC1-TC6) | Yes |
+| PlayerInitializer(int, List) | mismatched name count, trimmed and default names | Yes |
+| getPlayers() | size, ordered IDs/names, returned-list mutation, source-name mutation | Yes |
+| Player(int, String) | created with ID/name, alive, empty hand | Yes |
+| Player.getId() | distinct zero-based IDs (TC7) | Yes |
+| Player.getName() | ordered names (TC8), normalized/default values | Yes |
+| Player.isAlive() | all newly initialized players alive (TC9) | Yes |
+| Player.getHand() | empty (TC10), returned-list mutation | Yes |
+
+The additional cases are regression tests added during review, after the existing implementation. They are not evidence of the original feature's test-first development. Original commits remain unchanged. The TDD-history review request still requires the author's existing evidence or an instructor-approved resolution.
