@@ -1,10 +1,9 @@
-
 package domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerInitializer {
+public final class PlayerInitializer {
 
     private final List<Player> players;
 
