@@ -12,7 +12,7 @@
 1. [done] Team: Discussed game options and selected Exploding Kittens as the course project.
 2. [done] Hanwen Liu: Proposed Exploding Kittens and encouraged the team to finalize the project selection and begin development.
 3. [done] Isaiah Hashimoto: Updated repository configuration, documentation, contributors, build badge, and Java 11 GitHub Actions CI in merged PR #1.
-4. [completed later] Setup components and integration design are documented in [game setup](../design/game-setup.md). Original team task-assignment discussion is not recorded here.
+4. [completed later] Setup components and integration design are documented in [game setup](../design/game-setup.md). Historical task assignments are reconstructed in [discussion record](../project-management/discussion-record.md).
 
 # Week 5 (10/26/2026-11/01/2026)
 **Planning and Progress Tracking**:
@@ -53,7 +53,7 @@
 
 **Outstanding course documentation**:
 - Detailed integration and i18n plans are complete locally in [integration testing](../testing/integration-plan.md) and [i18n](../design/i18n-plan.md), with [board-ready entries](../project-management/board-items.md). Team discussion and board publication remain pending.
-- Required instructor meeting completion is not verified.
+- The October 27 instructor meeting is supported by Discord messages; Isaiah attended and shared the recording. Austin could not join; Gabriel attendance and detailed feedback remain unverified. See [discussion record](../project-management/discussion-record.md).
 - Add actual meeting outcomes and agreed task owners; do not replace missing history with assumed activity.
 
 Earlier weeks are retrospective progress summaries updated with current merge outcomes. No unrecorded planning or meetings are claimed.
@@ -62,3 +62,11 @@ Earlier weeks are retrospective progress summaries updated with current merge ou
 
 - Completed local setup requirements/use case, game-rule reference and variant note, architecture, detailed integration and i18n plans, per-class BVA for the new setup classes, documentation index, and course checklist.
 - No remote publication, invented meeting notes, or unagreed task assignments. See [course checklist](../course-checklist.md) for remaining team actions.
+
+## Team communication evidence
+
+- October 25: team agreed on Exploding Kittens; Austin accepted weekly-report work; all three agreed to Tuesday 4:30 p.m. for the instructor meeting.
+- October 27: instructor meeting occurred online; Isaiah posted during it and shared the recording afterward. Austin reported being unable to join.
+- November 4–5: Austin volunteered for player initialization, Isaiah for deck setup, and Gabriel for card distribution.
+- November 8: Gabriel clarified caller-supplied-deck input and that the catalog was separate work.
+- These are sourced asynchronous discussions and meeting evidence, not fabricated minutes. See [full reconstruction](../project-management/discussion-record.md). Future UI/i18n and gameplay owners still require agreement.

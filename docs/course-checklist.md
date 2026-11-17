@@ -2,7 +2,7 @@
 
 | Guidance | Repository evidence | Remaining action |
 | --- | --- | --- |
-| Week 4 instructor meeting | No verified meeting record | Team supplies actual date/notes or holds meeting |
+| Week 4 instructor meeting | October 27 occurrence supported by Discord; see project-management/discussion-record.md | Recover actual feedback; clarify attendance if required |
 | Weekly planning/progress | weekly-report/report.md; old path redirects | Add actual meeting outcomes and agreed next owners |
 | Reference projects and UI choice | No verified team decision | Confirm reference review and choose GUI/CLI; Swing is proposed only |
 | Functional requirements/use cases | requirements/game-setup.md | Copy requirements into project board when publishing is authorized |
@@ -14,4 +14,4 @@
 | i18n plan | design/i18n-plan.md | Confirm locale/owner, discuss, publish board entry, implement |
 | Weeks 8–10 product completion | Setup implemented; 98 tests pass locally | UI, turns/card effects, elimination, win conditions |
 
-Completed documentation is distinct from completing the activity it describes. No meetings, team decisions, external board updates, or i18n implementation are claimed by these files.
+Completed documentation is distinct from completing the activity it describes. Meeting and decision claims are limited to the sourced discussion record; no external board publication or i18n implementation is claimed.

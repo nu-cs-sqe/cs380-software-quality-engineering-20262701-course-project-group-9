@@ -19,9 +19,15 @@ Status: Decision needed. Owner: Team.
 Description: Current dealing returns all unused Defuse cards. Publisher's 2022 rule sheet retains only two extras for 2–3 players.
 Acceptance: record selected rule and rationale; if changed, add failing boundary tests before implementation and update requirements/deck conservation expectations.
 
-## Card: Verify required instructor meeting
-Status: Evidence needed. Owner: Team.
-Acceptance: record actual meeting date, attendees, instructor feedback, and follow-up actions in the weekly report. If not held, arrange the required meeting. Do not mark complete from an assumption.
+## Card: Complete instructor-meeting follow-up
+Status: Meeting occurrence documented; detailed feedback still needed. Owner: Team.
+Evidence: October 27 at 4:30 p.m., Zoom; Isaiah posted during the session and shared its recording afterward. Austin could not join; Gabriel's attendance is not established.
+Acceptance: recover actual instructor feedback and follow-up actions from the recording/notes. See [discussion record](discussion-record.md).
 
-## Discussion record to complete after the real discussion
-Date: pending. Attendees: pending. Decisions: pending. Agreed owners: pending. Board URLs: pending. These fields cannot be completed from repository history alone.
+## Reconstructed discussion record
+- Dates: October 25 (game/meeting agreement), October 27 (instructor session), November 4–5 (task allocation).
+- Participants: Isaiah, Austin, and Gabriel participated in asynchronous planning. Instructor-session attendance is described separately in the evidence record.
+- Decision: Exploding Kittens agreed October 25.
+- Historical owners: Austin — player initialization; Isaiah — deck setup; Gabriel — card distribution. Austin also accepted weekly-report work October 25.
+- Evidence and limitations: [discussion record](discussion-record.md).
+- Still pending: instructor feedback details, new gameplay owners, GUI/i18n decisions, integration-plan agreement, and board URLs.

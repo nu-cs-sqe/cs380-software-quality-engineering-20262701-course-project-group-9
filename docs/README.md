@@ -12,6 +12,7 @@ Current team: Hanwen Liu (Austin), Isaiah Hashimoto, Gabriel Hsieh.
 | [Internationalization](design/i18n-plan.md) | Proposed localization design and verification |
 | [BVA index](bva/index.md) | Per-class boundary analysis |
 | [Quality tools](quality-tools.md) | Commands, reports, known mutation gaps |
+| [Meeting/discussion record](project-management/discussion-record.md) | Sourced decisions, assignments, instructor-meeting evidence |
 | [Board-ready tasks](project-management/board-items.md) | Text prepared for GitHub Projects |
 | [Course checklist](course-checklist.md) | Verified completion versus remaining team actions |
 
