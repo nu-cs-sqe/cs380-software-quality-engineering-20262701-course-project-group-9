@@ -18,6 +18,11 @@ public class Player {
         this.hand = new ArrayList<>();
     }
 
+    public Player(int id, String name, List<String> cards) {
+        this(id, name);
+        throw new UnsupportedOperationException();
+    }
+
     public int getId() {
         return id;
     }
