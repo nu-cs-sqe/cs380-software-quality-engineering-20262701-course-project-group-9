@@ -1,26 +1,24 @@
-
 package domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public final class Player {
 
     private final int id;
     private final String name;
-    private boolean alive;
+    private final boolean alive;
     private final List<String> hand;
 
     public Player(int id, String name) {
-        this.id = id;
-        this.name = name;
-        this.alive = true;
-        this.hand = new ArrayList<>();
+        this(id, name, List.of());
     }
 
     public Player(int id, String name, List<String> cards) {
-        this(id, name);
-        throw new UnsupportedOperationException();
+        this.id = id;
+        this.name = name;
+        this.alive = true;
+        this.hand = new ArrayList<>(cards);
     }
 
     public int getId() {

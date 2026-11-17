@@ -14,9 +14,12 @@ Use real collaborators (no mocks) at both player-count boundaries and intermedia
 ## BVA
 | Input/API | Cases | Implemented |
 | --- | --- | --- |
-| GameSetup count | 1, 2, 3, 4, 5, 6 | No |
-| starting index | -1, 0, N-1, N | No |
-| names | wrong length, whitespace, empty default | No |
-| deck | null, empty, insufficient, valid | No |
-| getters | players/hands/draw/order defensive copies | No |
-| Player hand constructor | empty, eight cards, source/returned mutation | No |
+| GameSetup count | 1, 2, 3, 4, 5, 6 | Yes |
+| starting index | -1, 0, N-1, N | Yes |
+| names | wrong length, whitespace, empty default | Yes |
+| deck | null, empty, insufficient, valid | Yes |
+| getters | players/hands/draw/order defensive copies | Yes |
+| Player hand constructor | empty, eight cards, source/returned mutation | Yes |
+
+## Validation
+Actual red commit 1f4ba10: all 12 new integration cases failed against stubs. Green run: 83 tests pass; Checkstyle and SpotBugs pass; JaCoCo 121/121 lines and 52/52 branches; PIT 59/62 killed. Two surviving mutations remove existing shuffles; the third replaces Player.isAlive with true, equivalent while Player has no elimination behavior. No exclusions added. Player and PlayerInitializer are final to satisfy constructor safety checks. This is setup against a supplied deck, not yet a playable application.

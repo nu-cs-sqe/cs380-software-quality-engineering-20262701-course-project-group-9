@@ -23,7 +23,7 @@
 **Planning and Progress Tracking**:
 1. [done] Hanwen Liu: Completed Player Name Management, including name validation, default name generation, BVA documentation, and JUnit tests. PR #5 was merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/5)
 2. [in progress] Hanwen Liu: Refactored the PlayerNames constructor based on the instructor's Week 6 code review feedback by extracting validation and initialization into separate private methods. All 15 existing JUnit tests passed. Submitted PR #7 for review. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/7)
-3. [done] Hanwen Liu: Implemented Player Initialization using TDD. Added Player and PlayerInitializer classes to create player objects with unique IDs, names, alive status, and empty hands.
+3. [awaiting review] Hanwen Liu: Implemented Player Initialization in PR #8; test-first history verification remains open. Added Player and PlayerInitializer classes to create player objects with unique IDs, names, alive status, and empty hands.
 # One section per week until the last week of class (the week before the Finals week)
 
 
@@ -36,5 +36,5 @@
 # Week 8 (11/16/2026-11/22/2026)
 **Planning and Progress Tracking**:
 1. [awaiting review] Isaiah Hashimoto: Configured Checkstyle, SpotBugs, JaCoCo, and PIT in PR #13. Full local and CI checks passed; teammate approval is pending.
-2. [awaiting review] Isaiah Hashimoto: Implemented turn initialization in PR #14 using documented BVA and actual red/green commits. All 63 tests and quality checks pass. Keep player initialization in Austin's PR #8 separate until reviewed.
-3. [planned] Isaiah Hashimoto: Verify player/name/hand/turn alignment when the setup components can be integrated.
+2. [awaiting review] Isaiah Hashimoto: Implemented turn initialization in PR #14 using documented BVA and actual red/green commits. All 63 tests and quality checks pass. Player initialization is combined on the dependent integration branch; main awaits reviews.
+3. [awaiting review] Isaiah Hashimoto: PR #15 integrates all current open PR heads and verifies player/name/hand/turn alignment with 12 new integration cases; all 83 tests and quality checks pass.
