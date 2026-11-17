@@ -1,6 +1,6 @@
 # System design
 
-The current Java domain implementation separates validation, deck construction, dealing, and coordination. It has no runnable view/controller yet.
+Setup is split into small Java classes for validation, deck creation, dealing, and turn order. We have not built the interface yet.
 
 | Class | Responsibility | Collaborators |
 | --- | --- | --- |
@@ -14,9 +14,9 @@ The current Java domain implementation separates validation, deck construction, 
 | TurnInitialization | Validate starting index and construct cyclic order | PlayerSetup |
 | GameSetup | Coordinate setup and align dealt hands with players | PlayerInitializer, StandardDeck, DeckSetup, CardDistribution, TurnInitialization |
 
-Defensive copies protect exposed lists. Current Player state is immutable and always alive; gameplay must deliberately introduce state transitions and tests rather than assume elimination already exists. Strings currently identify card types; localization must not alter these identifiers.
+Getters return copies so callers cannot change the stored lists. Player is currently immutable and always alive; elimination still needs to be added and tested. Card types use string IDs, which should stay the same when we translate displayed names.
 
 ## Proposed interface design
-A small Java Swing interface is a proposal, not a recorded team decision. A command-line interface also meets the non-chess guidance. Keep rendering and text formatting in the view, input routing in the controller, and rule decisions in domain classes. The controller should call domain operations rather than implement dealing or card effects. Add a turn engine with explicit current-player, draw/discard piles, pending actions, and game-over state when gameplay work starts; exact public methods must be agreed before parallel implementation.
+Swing is one option; we still need to choose as a team. A command-line interface is also allowed for this project. The view should display the game, the controller should handle input, and domain classes should apply the rules. The turn engine will need to track the current player, draw/discard piles, pending actions, and whether the game is over. Agree on its public methods before splitting up the work.
 
 Detailed designs: [setup](game-setup.md), [turn initialization](turn-initialization.md), [deck](standard-deck.md), [i18n](i18n-plan.md).

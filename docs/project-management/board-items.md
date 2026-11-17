@@ -1,34 +1,42 @@
-# GitHub Projects entries prepared for publication
+# Draft project board tasks
 
-These are local drafts, not existing board cards. Publication is deferred while work must remain unpushed. The previously checked GitHub token also lacks read:project; no access scopes have been changed.
+These tasks are ready for team discussion but have not been posted to GitHub Projects. This update is staying local. The GitHub token checked earlier did not have read:project access.
 
-## Card: Agree and execute integration testing plan
-Status: To discuss. Owner: Unassigned (team to agree).
-Description: Review docs/testing/integration-plan.md. Setup IT01–IT04 are implemented; IT05–IT10 cover UI, turn actions, Defuse/elimination, turn debt, winning, and i18n.
-Acceptance: team records discussion date and attendees; agrees interfaces/owners; adds remaining scenarios as tasks; runs real-component setup and full quality checks; links test evidence and PRs; only marks implemented scenarios complete.
-Dependencies: runnable interface and turn engine for later scenarios.
+## Integration testing
 
-## Card: Agree and implement internationalization
-Status: To discuss. Owner: Unassigned (team to agree).
-Description: Review docs/design/i18n-plan.md. Proposed English/Spanish ResourceBundles; preserve stable domain card IDs and player names.
-Acceptance: confirm locales and translator/reviewer; assign implementation owner; complete I18N01–I18N06; demonstrate locale switch without game-state change; link tests and PR.
-Dependencies: UI design and agreement on message keys.
+**Owner:** To assign. **Status:** Needs team review.
 
-## Card: Confirm setup rules variant
-Status: Decision needed. Owner: Team.
-Description: Current dealing returns all unused Defuse cards. Publisher's 2022 rule sheet retains only two extras for 2–3 players.
-Acceptance: record selected rule and rationale; if changed, add failing boundary tests before implementation and update requirements/deck conservation expectations.
+Review the [integration test plan](../testing/integration-plan.md). Setup tests IT01–IT04 are done. IT05–IT10 cover the interface, turns, Defuse and elimination, Attack/Skip, winning, and language changes.
 
-## Card: Complete instructor-meeting follow-up
-Status: Required meeting complete; notes recovered from transcript. Owner: Team for remaining follow-up.
-Evidence: October 27, Zoom; Isaiah attended from the start, Austin joined late, and the instructor explicitly confirmed completion near 18:26. Recorded duration: 19:16.
-Follow-up: review the recovered notes; agree feature requirements/design and owners; publish board issues with linked PRs; keep concise weekly updates. See [discussion record](discussion-record.md).
+Agree on interfaces and assign the remaining tests. Record the discussion date and decisions, link the PRs and test results, and mark each scenario done when it passes. The later tests depend on the interface and turn engine.
 
-## Reconstructed discussion record
-- Dates: October 25 (game/meeting agreement), October 27 (instructor session), November 4–5 (task allocation).
-- Participants: Isaiah, Austin, and Gabriel participated in asynchronous planning. Instructor-session attendance is described separately in the evidence record.
-- Decision: Exploding Kittens agreed October 25.
-- Historical owners: Austin — player initialization; Isaiah — deck setup; Gabriel — card distribution. Austin also accepted weekly-report work October 25.
-- Evidence and limitations: [discussion record](discussion-record.md).
-- Meeting cadence: Saturdays, except weeks with a meeting on another day (Isaiah confirmed November 16). Individual meeting outcomes are recorded only when supplied.
-- Still pending: new gameplay owners and shared interfaces, GUI/i18n decisions, integration-plan agreement, setup-rule choice, and board URLs.
+## Internationalization
+
+**Owner:** To assign. **Status:** Needs team review.
+
+Review the [i18n plan](../design/i18n-plan.md). At least two languages at game start are required for an A, and new locales must be easy to add without changing existing code (project grading rubric, page 3). Spanish is only a suggestion.
+
+Choose the languages, implementation owner, and translation reviewer. Add the resource files and planned tests, connect the language choice to setup, and check that translations do not change game state. Link the finished PR and test results.
+
+## Extra Defuse cards
+
+**Owner:** Team. **Status:** Decision needed.
+
+Our setup code returns all unused Defuse cards to the deck. The publisher's 2022 rules return only two extras for 2–3 players. Choose which rule we will use and write down why. If we change the code, start with failing boundary tests and update the setup requirements and card-count checks.
+
+## Instructor meeting follow-up
+
+**Status:** Meeting complete; follow-up work remains.
+
+We met with Prof. Zhang on October 27. Isaiah attended from the start and Austin joined late. The instructor confirmed the required meeting was complete. See the [meeting notes](discussion-record.md).
+
+Next, agree on gameplay features, classes/methods, owners, deadlines, and reviewers. Put the tasks on the board with linked PRs and keep the weekly report updated.
+
+## Decisions already made
+
+- Exploding Kittens was agreed on October 25.
+- Austin volunteered for the weekly report on October 25.
+- On November 4–5, Austin took player initialization, Isaiah took deck setup, and Gabriel took card distribution.
+- We meet on Saturdays unless we have met on another day that week.
+
+Still to decide: GUI or CLI, gameplay assignments and interfaces, languages, integration test owners, and the extra-Defuse rule.

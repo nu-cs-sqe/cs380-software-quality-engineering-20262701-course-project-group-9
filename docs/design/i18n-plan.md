@@ -1,26 +1,36 @@
 # Internationalization plan
 
-Status: proposed and documented locally; not implemented, not yet recorded as a team discussion or published to the project board.
+This is a draft for the team to review. We have not implemented translations yet.
 
-## Scope
-Localize UI labels, buttons, prompts, validation messages, turn status, winner announcements, and displayed card names. Preserve player-entered names and stable domain card identifiers. Proposed initial locales: English default and Spanish; the team must confirm the second language and translation reviewer.
+## Course requirement
 
-## Design
-Use Java ResourceBundle with Messages.properties for English and Messages_es.properties for Spanish under src/main/resources/i18n. A UI translation service receives the selected Locale and resolves keys; pass it to views/controllers instead of changing global JVM locale or introducing translated strings into domain logic. Use MessageFormat for complete sentences with named concepts represented by positional arguments, such as turn.current={0}'s turn. Do not concatenate translated fragments. Use UTF-8 resource text and preserve accented names.
+Week 7 asks us to discuss and document an i18n plan on the project board. The project grading rubric, page 3 under **A: Excellent**, also requires players to choose between at least two languages at the beginning of the game. Adding another locale must not require changes to existing code. The rubric lists this under A, not B or C.
 
-Example key groups: setup.playerCount, setup.playerName, setup.start, validation.playerCount, validation.startingPlayer, turn.current, game.winner, card.defuse, card.explodingKitten. Translate card display through a lookup from stable identifiers; CardDistribution must continue matching its existing identifiers. Domain exceptions must not become the displayed text directly; controller maps known failures to translation keys. No resource bundles or translation service exist yet.
+English and Spanish are one option, but Spanish is not required. We need to choose the second language and someone who can check the translations.
 
-## Fallback and user flow
-Start with explicit English default; provide a language selector on the future setup screen. A supported language change refreshes visible text without resetting game state. Unsupported locale falls back to English. Test fallback deliberately; missing required keys should fail the test suite rather than be silently shipped. Use layout managers so longer translations are not clipped. Locale-sensitive number formatting belongs in the view.
+## How we would build it
 
-## Acceptance and tests
-| ID | Scenario | Expected result | Status |
-| --- | --- | --- | --- |
-| I18N01 | Compare required key sets | English and Spanish keys match | Planned |
-| I18N02 | Format a message with a player name | Name inserted unchanged; no placeholder visible | Planned |
-| I18N03 | Unsupported locale | English fallback | Planned |
-| I18N04 | Switch language after setup | Domain IDs, hands, deck, and turn order unchanged | Planned |
-| I18N05 | Names such as José and 美咲 | Unicode round-trip preserved | Planned |
-| I18N06 | Longer Spanish labels | No truncation in supported window size | Planned manual UI check |
+Keep displayed text in Java ResourceBundle files under src/main/resources/i18n. Use Messages.properties for English and a separate file for each additional language, such as Messages_es.properties for Spanish. Load available locales from configuration so adding a translation file and configuration entry does not require editing Java classes.
 
-Implement bundles/translation service with unit tests first, then wire UI and add integration tests. Have a teammate review translation accuracy and demonstrate both languages during acceptance testing. Owner and language approval are pending team agreement. Board-ready text is in ../project-management/board-items.md.
+The view would look up labels, prompts, validation messages, turn messages, winner messages, and card names by key. Card IDs inside the game logic would stay the same. Player names would stay exactly as entered.
+
+Use MessageFormat for complete messages with placeholders for names and numbers. Avoid building sentences from translated fragments. Keep the files in UTF-8 so accented characters work. Example keys: setup.start, validation.playerCount, turn.current, game.winner, and card.defuse. The controller would turn known validation errors into message keys rather than displaying exception text directly.
+
+## Player experience
+
+Let players choose a language before starting. Use English as the default and as a fallback for unsupported locales. Changing languages should only change the displayed text, not the cards, players, or turn order. Switching during a game is a proposed extra feature; the rubric only specifies a choice at the beginning.
+
+Use layouts that leave room for longer labels. Format numbers in the view. Missing translation keys should fail tests before we ship them.
+
+## Tests to add
+
+| ID | Test | Expected result |
+| --- | --- | --- |
+| I18N01 | Compare translation keys | Each supported language has every required key |
+| I18N02 | Insert a player's name into a message | Name is unchanged and no placeholder is left visible |
+| I18N03 | Request an unsupported locale | English is used |
+| I18N04 | Change the selected language | Hands, deck, player IDs, and turn order stay the same |
+| I18N05 | Use names such as José and 美咲 | Characters are preserved |
+| I18N06 | Display longer translated labels | Text fits the supported window size; check manually |
+
+All six tests are planned. Write the translation tests first, add the resource files and lookup code, then connect the interface. A teammate should check the translations. We still need an owner and a language choice before posting the [board task](../project-management/board-items.md).
