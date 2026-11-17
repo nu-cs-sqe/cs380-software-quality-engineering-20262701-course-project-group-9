@@ -23,4 +23,13 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
       - name: Build and test
-        run: ./gradlew build --no-daemon
+        run: ./gradlew build qualityCheck --no-daemon --continue
+      - name: Upload quality reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-reports
+          path: |
+            build/reports/
+            build/test-results/
+          if-no-files-found: warn

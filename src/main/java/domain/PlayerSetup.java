@@ -1,7 +1,7 @@
 
 package domain;
 
-public class PlayerSetup {
+public final class PlayerSetup {
 
     private final int playerCount;
 
