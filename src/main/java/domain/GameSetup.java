@@ -8,6 +8,10 @@ public final class GameSetup {
     private final CardDistribution distribution;
     private final TurnInitialization turns;
 
+    public GameSetup(int count, List<String> names, int start) {
+        this(count, names, List.of(), start);
+    }
+
     public GameSetup(int count, List<String> names, List<String> deck, int start) {
         PlayerInitializer initializer = new PlayerInitializer(count, names);
         turns = new TurnInitialization(count, start);
