@@ -7,3 +7,6 @@ This integration branch contains the exact current heads of every open PR: #8 72
 #8 and #10 have unresolved review requests about TDD evidence/progress wording. The combined report corrects the wording without claiming historical evidence. #11 is approved. #13 and #14 need teammate review; #15 also requires review. Branch inclusion is not approval. After dependencies merge, retarget stacked PRs to main and recheck diffs/checks.
 
 Remaining product work: standard deck creation, runnable UI, one turn, repeated turns, win conditions. Remaining course work includes CardDistribution constructor refactor from Week 7 feedback, team discussion/board entries for integration and i18n, and verification of instructor meeting. Existing setup tests use supplied deck fixtures; no claim of full playable game.
+
+## Follow-up
+PR #10 wording was corrected, branch synchronized, CI passed, and the approved PR merged into main at dbacc06. PR #8 is updated from main with six additional passing regression tests and completed BVA mapping (683e522); original TDD evidence remains unresolved. Integration now includes both updates. Earlier audit entries above describe the pre-review snapshot.
