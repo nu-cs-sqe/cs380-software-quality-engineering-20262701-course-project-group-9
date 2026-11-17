@@ -1,3 +1,7 @@
+# Meeting cadence
+
+Team meetings are on Saturdays, except weeks when the team met on another day (Isaiah confirmed November 16). This cadence does not supply missing per-meeting attendees or decisions. Instructor-session notes are in the [discussion record](../project-management/discussion-record.md).
+
 # Week 3 (10/12/2026-10/18/2026)
 **Planning and Progress Tracking**:
 
@@ -19,6 +23,8 @@
 
 1. [done] Hanwen Liu: Implemented player count validation (2–5 players) for Exploding Kittens, documented BVA, and added 8 passing JUnit tests using TDD. Merged in PR #2.(https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/2)
 
+- [done] October 27: required instructor meeting completed. Isaiah attended from the start; Austin joined late. Recovered transcript notes cover board setup, joint requirements/design, draft PRs and reviews, interface choice, and concise weekly reporting. See [meeting notes](../project-management/discussion-record.md).
+
 # Week 6 (11/02/2026-11/08/2026)
 **Planning and Progress Tracking**:
 
@@ -32,7 +38,7 @@
 
 - Gabriel Hsieh: Card distribution was merged in PR #9.
 - Instructor Week 7 feedback requested a smaller CardDistribution constructor and replacement of README TBD; both are addressed by subsequent work.
-- Planning discussions and meeting outcomes for this week are not recorded; teammates should add their actual notes.
+- Regular Saturday cadence is confirmed. Specific planning outcomes for this week are not recorded; add actual decisions when available.
 
 # Week 8 (11/16/2026-11/22/2026)
 
@@ -53,10 +59,10 @@
 
 **Outstanding course documentation**:
 - Detailed integration and i18n plans are complete locally in [integration testing](../testing/integration-plan.md) and [i18n](../design/i18n-plan.md), with [board-ready entries](../project-management/board-items.md). Team discussion and board publication remain pending.
-- The October 27 instructor meeting is supported by Discord messages; Isaiah attended and shared the recording. Austin could not join; Gabriel attendance and detailed feedback remain unverified. See [discussion record](../project-management/discussion-record.md).
+- The October 27 instructor meeting is complete, as explicitly confirmed by the instructor in the reviewed Zoom transcript. Isaiah attended from the start and Austin joined late; detailed feedback is now recorded. See [discussion record](../project-management/discussion-record.md).
 - Add actual meeting outcomes and agreed task owners; do not replace missing history with assumed activity.
 
-Earlier weeks are retrospective progress summaries updated with current merge outcomes. No unrecorded planning or meetings are claimed.
+Earlier weeks are retrospective progress summaries updated with current merge outcomes. Saturday cadence is team-reported; individual meeting decisions are included only when supported.
 
 ## Documentation follow-up
 
@@ -66,7 +72,8 @@ Earlier weeks are retrospective progress summaries updated with current merge ou
 ## Team communication evidence
 
 - October 25: team agreed on Exploding Kittens; Austin accepted weekly-report work; all three agreed to Tuesday 4:30 p.m. for the instructor meeting.
-- October 27: instructor meeting occurred online; Isaiah posted during it and shared the recording afterward. Austin reported being unable to join.
+- October 27: instructor meeting occurred online; Isaiah attended and shared the recording afterward. The transcript establishes that Austin joined late after his reported sign-in issue, and the instructor confirmed the required meeting was complete.
 - November 4–5: Austin volunteered for player initialization, Isaiah for deck setup, and Gabriel for card distribution.
 - November 8: Gabriel clarified caller-supplied-deck input and that the catalog was separate work.
-- These are sourced asynchronous discussions and meeting evidence, not fabricated minutes. See [full reconstruction](../project-management/discussion-record.md). Future UI/i18n and gameplay owners still require agreement.
+- November 16: Isaiah confirmed Saturday team meetings, except weeks with a meeting on another day.
+- These are sourced asynchronous discussions, transcript notes, and team-reported cadence. See [full reconstruction](../project-management/discussion-record.md). Future UI/i18n and gameplay owners still require agreement.

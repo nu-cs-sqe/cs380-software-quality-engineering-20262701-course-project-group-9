@@ -20,9 +20,9 @@ Description: Current dealing returns all unused Defuse cards. Publisher's 2022 r
 Acceptance: record selected rule and rationale; if changed, add failing boundary tests before implementation and update requirements/deck conservation expectations.
 
 ## Card: Complete instructor-meeting follow-up
-Status: Meeting occurrence documented; detailed feedback still needed. Owner: Team.
-Evidence: October 27 at 4:30 p.m., Zoom; Isaiah posted during the session and shared its recording afterward. Austin could not join; Gabriel's attendance is not established.
-Acceptance: recover actual instructor feedback and follow-up actions from the recording/notes. See [discussion record](discussion-record.md).
+Status: Required meeting complete; notes recovered from transcript. Owner: Team for remaining follow-up.
+Evidence: October 27, Zoom; Isaiah attended from the start, Austin joined late, and the instructor explicitly confirmed completion near 18:26. Recorded duration: 19:16.
+Follow-up: review the recovered notes; agree feature requirements/design and owners; publish board issues with linked PRs; keep concise weekly updates. See [discussion record](discussion-record.md).
 
 ## Reconstructed discussion record
 - Dates: October 25 (game/meeting agreement), October 27 (instructor session), November 4–5 (task allocation).
@@ -30,4 +30,5 @@ Acceptance: recover actual instructor feedback and follow-up actions from the re
 - Decision: Exploding Kittens agreed October 25.
 - Historical owners: Austin — player initialization; Isaiah — deck setup; Gabriel — card distribution. Austin also accepted weekly-report work October 25.
 - Evidence and limitations: [discussion record](discussion-record.md).
-- Still pending: instructor feedback details, new gameplay owners, GUI/i18n decisions, integration-plan agreement, and board URLs.
+- Meeting cadence: Saturdays, except weeks with a meeting on another day (Isaiah confirmed November 16). Individual meeting outcomes are recorded only when supplied.
+- Still pending: new gameplay owners and shared interfaces, GUI/i18n decisions, integration-plan agreement, setup-rule choice, and board URLs.

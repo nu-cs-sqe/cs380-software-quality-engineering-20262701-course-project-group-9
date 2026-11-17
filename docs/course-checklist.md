@@ -2,9 +2,9 @@
 
 | Guidance | Repository evidence | Remaining action |
 | --- | --- | --- |
-| Week 4 instructor meeting | October 27 occurrence supported by Discord; see project-management/discussion-record.md | Recover actual feedback; clarify attendance if required |
-| Weekly planning/progress | weekly-report/report.md; old path redirects | Add actual meeting outcomes and agreed next owners |
-| Reference projects and UI choice | No verified team decision | Confirm reference review and choose GUI/CLI; Swing is proposed only |
+| Week 4 instructor meeting | October 27 Zoom transcript reviewed; instructor explicitly confirmed completion; notes in project-management/discussion-record.md | Carry out recorded follow-up; no repeat first meeting required |
+| Weekly planning/progress | weekly-report/report.md; Saturday cadence confirmed, exceptions for other-day meetings | Add individual meeting outcomes and agreed next owners |
+| Reference projects and UI choice | October 27 transcript discusses both options; no final choice | Choose GUI/CLI and library if GUI; Swing is proposed only |
 | Functional requirements/use cases | requirements/game-setup.md | Copy requirements into project board when publishing is authorized |
 | System design | design/README.md and feature designs | Update with actual turn engine/UI interfaces during implementation |
 | BVA and TDD | bva/index.md; genuine red/green for new setup/deck work | Continue test-first workflow; original #8 history is author-reported |
