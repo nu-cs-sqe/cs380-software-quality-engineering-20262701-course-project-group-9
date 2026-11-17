@@ -38,3 +38,7 @@
 1. [awaiting review] Isaiah Hashimoto: Configured Checkstyle, SpotBugs, JaCoCo, and PIT in PR #13. Full local and CI checks passed; teammate approval is pending.
 2. [awaiting review] Isaiah Hashimoto: Implemented turn initialization in PR #14 using documented BVA and actual red/green commits. All 63 tests and quality checks pass. Player initialization is combined on the dependent integration branch; main awaits reviews.
 3. [awaiting review] Isaiah Hashimoto: PR #15 integrates all current open PR heads and verifies player/name/hand/turn alignment with 12 new integration cases; all 83 tests and quality checks pass.
+
+## Week 8 follow-up
+- PR #13 is merged into main. PR #14 merged into the tooling branch after #13; its code is included in #15, now retargeted to main.
+- PR #16: supplied the actual 56-card deck and default-deck GameSetup constructor with documented red/green tests. Refactored CardDistribution into extraction, validation, dealing, and pile-building methods for Week 7 feedback. All 98 tests and quality checks pass locally. Awaiting teammate review; depends on #15.

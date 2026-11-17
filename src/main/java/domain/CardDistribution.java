@@ -15,57 +15,54 @@ public final class CardDistribution {
 
     public CardDistribution(int playerCount, List<String> deck) {
         new PlayerSetup(playerCount);
-
-        if (deck == null) {
-            throw new IllegalArgumentException("Deck must not be null");
-        }
-
-        List<String> defuseCards = new ArrayList<>();
-        List<String> explodingKittens = new ArrayList<>();
-        List<String> otherCards = new ArrayList<>();
-
-        for (String card : deck) {
-            if (card == null || card.trim().isEmpty()) {
-                throw new IllegalArgumentException(
-                    "Deck must not contain null or blank cards"
-                );
-            }
-
-            if (DEFUSE_CARD.equals(card)) {
-                defuseCards.add(card);
-            } else if (EXPLODING_KITTEN_CARD.equals(card)) {
-                explodingKittens.add(card);
-            } else {
-                otherCards.add(card);
-            }
-        }
-
-        int requiredOtherCards = playerCount * RANDOM_CARDS_PER_PLAYER;
-        if (defuseCards.size() < playerCount
-                || explodingKittens.size() < playerCount - 1
-                || otherCards.size() < requiredOtherCards) {
-            throw new IllegalArgumentException(
-                "Deck does not contain enough cards for the initial deal"
-            );
-        }
-
+        List<String> otherCards = new DeckSetup(deck).getCards();
+        List<String> defuseCards = extractCards(otherCards, DEFUSE_CARD);
+        List<String> explodingKittens = extractCards(otherCards, EXPLODING_KITTEN_CARD);
+        validateCardCounts(playerCount, defuseCards.size(), explodingKittens.size(), otherCards.size());
         Collections.shuffle(otherCards);
+        hands = dealHands(playerCount, defuseCards, otherCards);
+        drawPile = createDrawPile(otherCards, defuseCards, explodingKittens.subList(0, playerCount - 1));
+    }
 
-        this.hands = new ArrayList<>();
+    private List<String> extractCards(List<String> cards, String type) {
+        List<String> matching = new ArrayList<>();
+        java.util.Iterator<String> iterator = cards.iterator();
+        while (iterator.hasNext()) {
+            String card = iterator.next();
+            if (type.equals(card)) {
+                matching.add(card);
+                iterator.remove();
+            }
+        }
+        return matching;
+    }
+
+    private void validateCardCounts(int playerCount, int defuseCount, int kittenCount, int otherCount) {
+        if (defuseCount < playerCount || kittenCount < playerCount - 1
+                || otherCount < playerCount * RANDOM_CARDS_PER_PLAYER) {
+            throw new IllegalArgumentException("Deck does not contain enough cards for the initial deal");
+        }
+    }
+
+    private List<List<String>> dealHands(int playerCount, List<String> defuses, List<String> otherCards) {
+        List<List<String>> dealt = new ArrayList<>();
         for (int i = 0; i < playerCount; i++) {
             List<String> hand = new ArrayList<>();
-            hand.add(defuseCards.remove(0));
+            hand.add(defuses.remove(0));
             for (int j = 0; j < RANDOM_CARDS_PER_PLAYER; j++) {
                 hand.add(otherCards.remove(0));
             }
-            this.hands.add(hand);
+            dealt.add(hand);
         }
+        return dealt;
+    }
 
-        this.drawPile = new ArrayList<>();
-        drawPile.addAll(otherCards);
-        drawPile.addAll(defuseCards);
-        drawPile.addAll(explodingKittens.subList(0, playerCount - 1));
-        Collections.shuffle(drawPile);
+    private List<String> createDrawPile(List<String> otherCards, List<String> defuses, List<String> kittens) {
+        List<String> pile = new ArrayList<>(otherCards);
+        pile.addAll(defuses);
+        pile.addAll(kittens);
+        Collections.shuffle(pile);
+        return pile;
     }
 
     public List<List<String>> getHands() {
