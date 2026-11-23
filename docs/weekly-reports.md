@@ -35,6 +35,20 @@
 
 # Week 8 (11/16/2026-11/22/2026)
 **Planning and Progress Tracking**:
-1. [awaiting review] Isaiah Hashimoto: Configured Checkstyle, SpotBugs, JaCoCo, and PIT in PR #13. Full local and CI checks passed; teammate approval is pending.
-2. [awaiting review] Isaiah Hashimoto: Implemented turn initialization in PR #14 using documented BVA and actual red/green commits. All 63 tests and quality checks pass. Player initialization is combined on the dependent integration branch; main awaits reviews.
-3. [awaiting review] Isaiah Hashimoto: PR #15 integrates all current open PR heads and verifies player/name/hand/turn alignment with 12 new integration cases; all 83 tests and quality checks pass.
+1. [done] Hanwen Liu: Completed Deck Setup validation using TDD, including BVA documentation, JUnit tests, and defensive copying. PR #12 was reviewed and merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/12)
+
+2. [done] Hanwen Liu: Completed Player Initialization and addressed additional review feedback. PR #8 was merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/8)
+
+3. [done] Isaiah Hashimoto: Configured Checkstyle, SpotBugs, JaCoCo, and PIT for automated code quality checks. PR #13 was reviewed and merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/13)
+
+4. [done] Isaiah Hashimoto: Implemented starting player selection and turn initialization. PR #14 was reviewed and merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/14)
+
+5. [done] Isaiah Hashimoto: Integrated Player Initialization, Deck Setup, Card Distribution, and Turn Initialization into the Game Setup workflow. PR #15 was reviewed and merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/15)
+
+6. [done] Isaiah Hashimoto: Added standard deck creation and simplified card distribution. PR #16 was reviewed and merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/16)
+
+7. [done] Isaiah Hashimoto: Updated the project team member list. PR #17 was merged into main. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/17)
+
+8. [in progress] Hanwen Liu: Implemented Player Elimination with BVA documentation and JUnit tests. Submitted PR #18 for review. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/18)
+
+9. [in progress] Hanwen Liu: Implemented Win Condition logic to identify the last surviving player and determine when the game ends. Submitted PR #19 for review. (https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/19)
