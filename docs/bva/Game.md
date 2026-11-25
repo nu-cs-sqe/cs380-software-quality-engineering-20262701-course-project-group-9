@@ -13,5 +13,7 @@ This slice connects setup to drawing, Skip, Defuse, elimination, and winning. Ot
 | Reinsertion at -1 or size + 1 | Rejected without changing state |
 | Skip held / absent | Spend one and end turn / reject without advancing |
 | Empty pile | Reject draw without advancing |
+| Start with a previously eliminated player | Reject the lineup |
+| Pending kitten while also holding Skip | Reject Skip and preserve both cards and the pending decision |
 
 Game takes a GameSetup or deterministic player/deck/start inputs for tests. It owns copies of players and cards. Read methods return snapshots. The CLI only prompts, parses, and displays. No new PR is opened while the user's no-push instruction is active. New turn behavior follows local test-first commits.

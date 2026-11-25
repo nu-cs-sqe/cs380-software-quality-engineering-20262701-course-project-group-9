@@ -39,6 +39,7 @@ class ConsoleGameTest {
         console("skip\ndraw\nunused\n").play(game);
         String text = transcript();
         assertTrue(text.contains("A's turn"));
+        assertTrue(text.contains("A played Skip."));
         assertTrue(text.indexOf("B's turn") > text.indexOf("A's turn"));
         assertTrue(text.contains("B was eliminated"));
         assertTrue(text.indexOf("A wins!") > text.indexOf("B's turn"));
@@ -56,6 +57,8 @@ class ConsoleGameTest {
         assertTrue(transcript().contains("Unknown command"));
         assertTrue(transcript().contains("No Skip card"));
         assertTrue(transcript().contains("Favor"));
+        assertTrue(transcript().contains("A drew a card."));
+        assertFalse(transcript().contains("was eliminated"));
         assertFalse(transcript().contains("Nope"));
         assertEquals(List.of("Favor", "Shuffle"), game.getPlayers().get(0).getHand());
         assertEquals("B", game.getCurrentPlayer().getName());
@@ -98,6 +101,17 @@ class ConsoleGameTest {
     void startsAtTheLastOfFiveSeats() throws IOException {
         console("5\nA\nB\nC\nD\nJosé\n5\n").start();
         assertTrue(transcript().contains("José's turn"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "2\nA\nB\n"})
+    void endOfInputAtNumericSetupPromptsStopsBeforeFirstTurn(String script) throws IOException {
+        console(script).start();
+        assertTrue(transcript().contains("How many players? (2-5)"));
+        if (!script.isEmpty()) {
+            assertTrue(transcript().contains("Which player goes first?"));
+        }
+        assertFalse(transcript().contains("'s turn"));
     }
 
     @Test

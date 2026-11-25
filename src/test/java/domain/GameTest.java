@@ -87,6 +87,24 @@ class GameTest {
     }
 
     @Test
+    void cannotSpendSkipWhileHoldingAKittenForReinsertion() {
+        Game game = game(List.of("Defuse", "Skip"), List.of("Exploding Kitten"), 0);
+        game.draw();
+        assertThrows(IllegalStateException.class, game::skip);
+        assertTrue(game.needsReinsertion());
+        assertEquals(0, game.getCurrentPlayer().getId());
+        assertEquals(List.of("Defuse", "Skip"), game.getCurrentPlayer().getHand());
+    }
+
+    @Test
+    void rejectsAnEliminatedPlayerInTheStartingLineup() {
+        Player eliminated = new Player(1, "B");
+        eliminated.eliminate();
+        List<Player> lineup = List.of(new Player(0, "A"), eliminated);
+        assertThrows(IllegalArgumentException.class, () -> new Game(lineup, List.of("Skip"), 0));
+    }
+
+    @Test
     void connectsSetupAndProtectsOwnedPlayers() {
         GameSetup setup = new GameSetup(2, List.of("A", "B"), 1);
         Game game = new Game(setup);
