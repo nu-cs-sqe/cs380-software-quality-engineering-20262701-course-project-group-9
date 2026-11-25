@@ -37,6 +37,14 @@ public final class Player {
         alive = false;
     }
 
+    void receive(String card) {
+        hand.add(card);
+    }
+
+    boolean spend(String card) {
+        return hand.remove(card);
+    }
+
     public List<String> getHand() {
         return new ArrayList<>(hand);
     }
