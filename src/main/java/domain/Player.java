@@ -7,7 +7,7 @@ public final class Player {
 
     private final int id;
     private final String name;
-    private final boolean alive;
+    private boolean alive;
     private final List<String> hand;
 
     public Player(int id, String name) {
@@ -31,6 +31,10 @@ public final class Player {
 
     public boolean isAlive() {
         return alive;
+    }
+    
+    public void eliminate() {
+    alive = false;
     }
 
     public List<String> getHand() {
