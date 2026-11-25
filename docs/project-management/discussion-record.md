@@ -39,6 +39,17 @@ Turn initialization was also needed, but nobody claimed it in that exchange. Isa
 
 Gabriel clarified that CardDistribution takes a list of cards supplied by the caller. It does not need a Deck object or create the standard deck. That left deck construction as separate work. (Discord, 6:16–6:18 p.m.)
 
+## November 24: project choices
+
+Isaiah reported the following choices:
+
+- Use a command-line interface.
+- Follow the rules linked in Canvas rather than add house rules.
+- Support English and Spanish.
+- Isaiah will manage the project board.
+
+We still need to verify the exact Canvas rules link against the rule sheet already referenced in this repository. Then check the implementation against that version, including extra Defuse cards and card combinations.
+
 ## Next team discussion
 
-We need to choose the interface, agree on the next gameplay classes and methods, and assign owners, deadlines, and reviewers. We also need to review the integration test plan, choose languages for i18n, and settle the extra-Defuse rule. See the [draft board tasks](board-items.md).
+Agree on the gameplay classes and methods, task owners, deadlines, and reviewers. Assign integration tests and a translation reviewer. Isaiah will maintain the board. See the [draft board tasks](board-items.md).

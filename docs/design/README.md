@@ -16,7 +16,7 @@ Setup is split into small Java classes for validation, deck creation, dealing, a
 
 Getters return copies so callers cannot change the stored lists. Player is currently immutable and always alive; elimination still needs to be added and tested. Card types use string IDs, which should stay the same when we translate displayed names.
 
-## Proposed interface design
-Swing is one option; we still need to choose as a team. A command-line interface is also allowed for this project. The view should display the game, the controller should handle input, and domain classes should apply the rules. The turn engine will need to track the current player, draw/discard piles, pending actions, and whether the game is over. Agree on its public methods before splitting up the work.
+## Command-line interface
+Isaiah reported the command-line choice on November 24. Use console prompts and output for the interface. The view should display the game, the controller should handle input, and domain classes should apply the rules. The turn engine will need to track the current player, draw/discard piles, pending actions, and whether the game is over. Agree on its public methods before splitting up the work.
 
 Detailed designs: [setup](game-setup.md), [turn initialization](turn-initialization.md), [deck](standard-deck.md), [i18n](i18n-plan.md).

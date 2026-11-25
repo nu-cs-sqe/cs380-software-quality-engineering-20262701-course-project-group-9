@@ -14,15 +14,15 @@ Agree on interfaces and assign the remaining tests. Record the discussion date a
 
 **Owner:** To assign. **Status:** Needs team review.
 
-Review the [i18n plan](../design/i18n-plan.md). At least two languages at game start are required for an A, and new locales must be easy to add without changing existing code (project grading rubric, page 3). Spanish is only a suggestion.
+Review the [i18n plan](../design/i18n-plan.md). At least two languages at game start are required for an A, and new locales must be easy to add without changing existing code (project grading rubric, page 3). English and Spanish are selected.
 
-Choose the languages, implementation owner, and translation reviewer. Add the resource files and planned tests, connect the language choice to setup, and check that translations do not change game state. Link the finished PR and test results.
+Assign the implementation owner and translation reviewer. Add the resource files and planned tests, connect the language choice to setup, and check that translations do not change game state. Link the finished PR and test results.
 
 ## Extra Defuse cards
 
-**Owner:** Team. **Status:** Decision needed.
+**Owner:** To assign. **Status:** Verify Canvas rule source, then check implementation.
 
-Our setup code returns all unused Defuse cards to the deck. The publisher's 2022 rules return only two extras for 2–3 players. Choose which rule we will use and write down why. If we change the code, start with failing boundary tests and update the setup requirements and card-count checks.
+Our setup code returns all unused Defuse cards to the deck. The publisher's 2022 rules return only two extras for 2–3 players. We will follow the Canvas-linked rules. Verify that exact source before deciding whether this implementation needs changing. If we change the code, start with failing boundary tests and update the setup requirements and card-count checks.
 
 ## Instructor meeting follow-up
 
@@ -39,4 +39,4 @@ Next, agree on gameplay features, classes/methods, owners, deadlines, and review
 - On November 4–5, Austin took player initialization, Isaiah took deck setup, and Gabriel took card distribution.
 - We meet on Saturdays unless we have met on another day that week.
 
-Still to decide: GUI or CLI, gameplay assignments and interfaces, languages, integration test owners, and the extra-Defuse rule.
+Isaiah will manage the board. The interface will be command line, the languages English and Spanish, and the rules those linked in Canvas. Still needed: gameplay assignments and interfaces, integration test owners, translation review, and verification of the exact Canvas rule source.

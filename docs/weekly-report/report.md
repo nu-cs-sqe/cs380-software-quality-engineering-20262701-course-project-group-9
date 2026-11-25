@@ -61,3 +61,11 @@ The combined local branch passed all 98 tests and both linters. JaCoCo reported 
 - Create a PR for the local setup and documentation work when ready to push.
 
 The setup requirements, design, BVA notes, meeting notes, and course checklist are written. The game still needs an interface and playable turns through a win condition.
+
+## Week 9 (11/23–11/29)
+
+### Planning update, November 24
+
+Isaiah reported the command-line interface, English/Spanish, and following the Canvas-linked rules. He will manage the board. Gameplay and test assignments still need owners. Verify the exact Canvas rule source before changing the dealing rules.
+
+The latest remote code could not be checked in this session because GitHub fetch and API access failed. No claim of synchronization with teammates' latest work is made.
