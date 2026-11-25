@@ -68,4 +68,6 @@ The setup requirements, design, BVA notes, meeting notes, and course checklist a
 
 Isaiah reported the command-line interface, English/Spanish, and following the Canvas-linked rules. He will manage the board. Gameplay and test assignments still need owners. Verify the exact Canvas rule source before changing the dealing rules.
 
-The latest remote code could not be checked in this session because GitHub fetch and API access failed. No claim of synchronization with teammates' latest work is made.
+After Isaiah fetched the repository, we integrated origin/main at 0907c12 locally. This includes Austin's player elimination (#18), winner detection (#19), and Week 8 report (#20). Those PRs are merged. Their implementation commits did not include the reported elimination BVA or new tests; follow-up coverage is being added locally. PR #16 is still only on the feature branch and our local branch, not remote main.
+
+The older report from #20 was reconciled into this file. Its claim that #16 reached main and its pending-review labels for #18 and #19 were corrected. The November 16 quality results above are historical, not results for the newly integrated code.
