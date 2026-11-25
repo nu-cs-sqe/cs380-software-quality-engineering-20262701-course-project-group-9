@@ -71,3 +71,9 @@ Isaiah reported the command-line interface, English/Spanish, and following the C
 After Isaiah fetched the repository, we integrated origin/main at 0907c12 locally. This includes Austin's player elimination (#18), winner detection (#19), and Week 8 report (#20). Those PRs are merged. Their implementation commits did not include the reported elimination BVA or new tests; follow-up coverage is being added locally. PR #16 is still only on the feature branch and our local branch, not remote main.
 
 The older report from #20 was reconciled into this file. Its claim that #16 reached main and its pending-review labels for #18 and #19 were corrected. The November 16 quality results above are historical, not results for the newly integrated code.
+
+### Local turn and CLI verification, November 24
+
+The turn engine passed its eight test-first cases and was committed on `feature/playable-turns` (`4bdf17a`). On `feature/command-line-game`, eight console tests first failed against a stub (`9c07d6c`) and passed after setup and turns were connected (`caf463f`). The game now runs in a terminal with 2–5 players. It accepts hand, draw and Skip commands, handles Defuse reinsertion, and announces the last survivor.
+
+After mutation testing we added regression checks for the prompts, Skip, and invalid starting players. All 125 tests and both linters passed. A full game using the Gradle launcher ended with a winner. The [quality report](../quality-tools.md) lists the surviving mutants and coverage gaps. Both feature branches are local and await team review. Remaining work includes the other card effects, invented cards, a second win condition, and language selection.

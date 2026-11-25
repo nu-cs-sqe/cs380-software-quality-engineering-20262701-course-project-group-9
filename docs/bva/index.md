@@ -15,3 +15,5 @@
 The general documentation requirements remain in [README](README.md). Implemented means the corresponding assertion exists, not that original development history has been reconstructed. Planned gameplay and i18n tests are listed in their plans and are not counted as implemented.
 
 - [Elimination and winner regression coverage](EliminationAndWinner.md)
+- [Drawing, Skip and Defuse](Game.md)
+- [Command-line setup and turn inputs](ConsoleGame.md)

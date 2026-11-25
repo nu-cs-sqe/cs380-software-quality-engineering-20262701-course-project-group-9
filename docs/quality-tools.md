@@ -18,11 +18,7 @@ imports, 120-column lines, and basic correctness rules. Static wildcard imports
 for JUnit assertions are allowed. Linters fail the build on reported violations;
 no blanket exclusions or ignored failures are configured.
 
-JaCoCo reports all compiled main classes. PIT targets `domain.*` and discovers
-`domain.*Test`, matching the actual package rather than the Gradle group name.
-PIT runs with its JUnit 5 plugin. Coverage and mutation percentages are reported
-without an invented course threshold; review surviving mutants and uncovered
-branches when adding features. Empty UI scaffolding contains no compiled class.
+JaCoCo reports all compiled main classes. PIT targets the domain classes and `ui.ConsoleGame`. It runs the domain and console tests with JUnit 5. The launcher is exercised separately through Gradle.
 
 These are build/configuration changes, not new game behavior. Existing unit
 tests remain the regression suite. Future behavior changes must follow the
@@ -34,6 +30,12 @@ The full clean build and qualityCheck passed from IntelliJ: 40 tests, zero Check
 
 SpotBugs initially reported CT_CONSTRUCTOR_THROW in the four setup classes. Making these concrete classes final resolves the finalizer-subclass risk while preserving constructor validation and all existing tests. They are no longer subclassable. No new gameplay behavior is introduced.
 
-## Current local setup baseline
+## Earlier local setup baseline
 
-The synchronized completion branch passed 98 tests, both linters, 131/131 lines, 46/46 branches, and 62/65 killed mutants. The two shuffle-removal survivors remain; Player.isAlive also has an equivalent always-true survivor until elimination is introduced. No mutants are excluded. This supersedes the earlier 40-test tooling baseline for current setup code.
+Before elimination and playable turns, setup passed 98 tests and both linters. JaCoCo covered 131/131 lines and 46/46 branches. PIT killed 62/65 mutants. These numbers describe that earlier build.
+
+## Local turn and console results (November 24, 2026)
+
+`./gradlew clean build qualityCheck --continue --console=plain` passed all 125 tests. Checkstyle and SpotBugs each reported zero findings in main and test code. JaCoCo covered 270/274 lines, 117/118 branches, and 121/123 units of cyclomatic complexity. The two missed complexity units are in `Main.main` and `WinCondition.getWinner`.
+
+`ConsoleGame` covered 64/64 lines, 34/34 branches, and 25/25 complexity units. Its tests killed all 39 console mutants. Across the project PIT recorded 145 kills, one timeout in `Game.advance`, and two surviving shuffle removals in `CardDistribution`. The tests do not yet distinguish a shuffled deal from one that preserves the input order.
