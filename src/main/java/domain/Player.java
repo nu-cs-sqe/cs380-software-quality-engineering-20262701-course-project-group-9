@@ -32,9 +32,9 @@ public final class Player {
     public boolean isAlive() {
         return alive;
     }
-    
+
     public void eliminate() {
-    alive = false;
+        alive = false;
     }
 
     public List<String> getHand() {
