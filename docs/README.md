@@ -1,6 +1,6 @@
 # Project documentation
 
-Current team: Hanwen Liu (Austin), Isaiah Hashimoto, Gabriel Hsieh.
+The current team is Hanwen (Austin) Liu and Isaiah Hashimoto.
 
 | Document | Purpose |
 | --- | --- |

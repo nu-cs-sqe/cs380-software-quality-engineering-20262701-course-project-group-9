@@ -2,10 +2,10 @@
 
 [![Build](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/actions/workflows/build.yml)
 
-## Contributors
-- Hanwen Liu
+## Current team
+
+- Hanwen (Austin) Liu
 - Isaiah Hashimoto
-- Gabriel Hsieh
 
 ## Dependencies
 - JDK 11
