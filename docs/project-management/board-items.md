@@ -10,6 +10,8 @@
 | English and Spanish | [#28](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/28) | Choose the implementer and translation reviewer. See the [language plan](../design/i18n-plan.md). |
 | Integration testing | [#29](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/29) | Agree on owners for two features and link each scenario to its tests and CI run. See the [test plan](../testing/integration-plan.md). |
 | Game setup and Canvas rules | [#30](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/30) | Isaiah checked the course rule sheet. The team should settle the setup edition before changing gameplay. |
+| Quality findings on main | [#33](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/33) | The issue lists the PIT findings and the missed paths in Game and WinCondition. Agree on owners for the fixes. |
+| Two-person scope and card credit | [#34](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/34) | Isaiah coordinates the board update. Both teammates should confirm card credit and record any course staff guidance. |
 | Board and weekly report | [#31](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/31) | Isaiah is updating the board links and the [weekly report](../weekly-report/report.md). |
 
 ## How we use the board
