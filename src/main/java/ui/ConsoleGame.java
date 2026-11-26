@@ -74,8 +74,7 @@ final class ConsoleGame {
                     output.println(player.getName() + " played Skip.");
                     break;
                 case "future":
-                    List<String> future = game.seeTheFuture();
-                    output.println("Future cards: " + future);
+                    playSeeTheFuture(game);
                     break;
                 case "shuffle":
                     game.shuffle();
@@ -94,6 +93,22 @@ final class ConsoleGame {
         } catch (IllegalStateException invalidMove) {
             output.println(invalidMove.getMessage());
         }
+    }
+    private void playSeeTheFuture(Game game) throws IOException {
+    List<String> future = game.seeTheFuture();
+
+    output.println("Future cards: " + future);
+    output.println("Press Enter to hide the cards.");
+
+    String line;
+    while ((line = input.readLine()) != null) {
+        if (line.isEmpty()) {
+            break;
+        }
+        output.println("Press Enter without typing anything.");
+    }
+
+    clearScreen();
     }
 
     private void playFavor(Game game, Player actor) throws IOException {

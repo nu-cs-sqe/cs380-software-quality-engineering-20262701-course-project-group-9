@@ -131,38 +131,38 @@ class FutureAndShuffleTest {
     }
 
     @Test
-    void shufflePreservesCards() {
-        List<String> cards = List.of(
-            "Skip", "Attack", "Favor", "Nope"
-        );
+    void shuffleChangesDrawOrderWithFixedSeed() {
+    List<String> cards = List.of(
+        "Skip", "Attack", "Favor", "Nope"
+    );
 
-        Game game = game(List.of("Shuffle"), cards);
+    Game game = game(List.of("Shuffle"), cards);
 
-        game.shuffle(new Random(42));
+    List<String> expected = new ArrayList<>(cards);
+    Collections.shuffle(expected, new Random(42));
 
-        List<String> remaining = new ArrayList<>();
+    game.shuffle(new Random(42));
 
-        // Read the cards through ordinary draw actions.
-        for (int i = 0; i < cards.size(); i++) {
-            int currentId = game.getCurrentPlayer().getId();
-            int before = game.getPlayers().get(currentId)
-                .getHand().size();
+    List<String> actual = new ArrayList<>();
 
-            game.draw();
+    for (int i = 0; i < cards.size(); i++) {
+        int currentId = game.getCurrentPlayer().getId();
 
-            List<String> hand = game.getPlayers()
-                .get(currentId).getHand();
+        int before = game.getPlayers()
+            .get(currentId).getHand().size();
 
-            assertEquals(before + 1, hand.size());
-            remaining.add(hand.get(hand.size() - 1));
-        }
+        game.draw();
 
-        Collections.sort(remaining);
+        List<String> hand = game.getPlayers()
+            .get(currentId).getHand();
 
-        List<String> expected = new ArrayList<>(cards);
-        Collections.sort(expected);
+        assertEquals(before + 1, hand.size());
 
-        assertEquals(expected, remaining);
+        actual.add(hand.get(hand.size() - 1));
+    }
+
+    assertNotEquals(cards, expected);
+    assertEquals(expected, actual);
     }
 
     @Test

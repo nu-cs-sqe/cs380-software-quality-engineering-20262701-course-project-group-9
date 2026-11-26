@@ -32,6 +32,35 @@ class ConsoleGameTest {
     private Game game(List<String> firstHand, String... deck) {
         return new Game(List.of(new Player(0, "A", firstHand), new Player(1, "B")), List.of(deck), 0);
     }
+    @Test
+    void seeTheFutureClearsScreenAfterEnter() throws IOException {
+    Game game = game(
+        List.of("See the Future"),
+        "Attack", "Shuffle", "Favor", "Skip"
+    );
+
+    console("future\n\n").play(game);
+
+    String text = transcript();
+    String clear = "\033[2J\033[H";
+
+    assertTrue(text.contains(
+        "Future cards: [Attack, Shuffle, Favor]"
+    ));
+
+    assertTrue(text.contains(
+        "Press Enter to hide the cards."
+    ));
+
+    int revealPosition = text.indexOf("Future cards:");
+    int clearPosition = text.indexOf(clear, revealPosition);
+
+    assertTrue(clearPosition > revealPosition);
+
+    assertEquals(0, game.getCurrentPlayer().getId());
+    assertEquals(4, game.getDrawPileSize());
+    assertTrue(game.getCurrentPlayer().getHand().isEmpty());
+    }
 
     @Test
     void playingFavorLetsTheSelectedOpponentChooseAndTheActorContinue() throws IOException {
