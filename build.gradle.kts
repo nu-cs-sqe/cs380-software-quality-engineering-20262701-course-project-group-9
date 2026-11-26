@@ -4,6 +4,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 
 plugins {
     id("java")
+    application
     id("checkstyle")
     id("jacoco")
     id("com.github.spotbugs") version "6.0.25"
@@ -26,6 +27,12 @@ java {
 }
 
 tasks.compileJava { options.release = 11 }
+
+application { mainClass.set("ui.Main") }
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}
 
 tasks.test {
     useJUnitPlatform()
@@ -72,8 +79,8 @@ tasks.jacocoTestReport {
 pitest {
     pitestVersion.set("1.15.0")
     junit5PluginVersion.set("1.2.1")
-    targetClasses.set(setOf("domain.*"))
-    targetTests.set(setOf("domain.*Test"))
+    targetClasses.set(setOf("domain.*", "ui.ConsoleGame"))
+    targetTests.set(setOf("domain.*Test", "ui.*Test"))
     threads.set(2)
     outputFormats.set(setOf("HTML", "XML"))
     timestampedReports.set(false)

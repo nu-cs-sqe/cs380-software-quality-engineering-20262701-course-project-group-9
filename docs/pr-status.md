@@ -1,12 +1,11 @@
-# PR synchronization audit — November 16, 2026
+# PR status — November 24, 2026
 
-Fetched all remote branches and inspected all 14 existing PR records before integration. PRs #1, #2, #4, #5, #6, #7, #9, and #12 are merged and present via main at 0e2fc1d. PR #3 is closed, superseded report work, and is not reintroduced.
+Previously reviewed PRs: #1, #2, and #4 through #17 are approved and merged; #3 was closed without merging.
 
-This integration branch contains the exact current heads of every open PR: #8 7209379, #10 04c16dd, #11 654bf3c, #13 d6cb786, and #14 9e30726. Original authorship and history are preserved. No main merges or force pushes were performed in this update.
+Remote main includes #8, #13, #15, and #17. Turn initialization from #14 reached main through #15.
 
-#8 and #10 have unresolved review requests about TDD evidence/progress wording. The combined report corrects the wording without claiming historical evidence. #11 is approved. #13 and #14 need teammate review; #15 also requires review. Branch inclusion is not approval. After dependencies merge, retarget stacked PRs to main and recheck diffs/checks.
+PR #16 merged into feature/game-setup-integration after #15 merged into main. Its standard deck and distribution refactor are therefore still absent from remote main. The local chore/complete-setup-report branch combines latest main with that feature branch. It has not been pushed, and no new PR has been created.
 
-Remaining product work: standard deck creation, runnable UI, one turn, repeated turns, win conditions. Remaining course work includes CardDistribution constructor refactor from Week 7 feedback, team discussion/board entries for integration and i18n, and verification of instructor meeting. Existing setup tests use supplied deck fixtures; no claim of full playable game.
+PR #8's TDD review was resolved after Austin described his test-first run and explained the combined test/implementation commit. This is author-reported history, not separately verifiable red/green commits.
 
-## Follow-up
-PR #10 wording was corrected, branch synchronized, CI passed, and the approved PR merged into main at dbacc06. PR #8 is updated from main with six additional passing regression tests and completed BVA mapping (683e522); original TDD evidence remains unresolved. Integration now includes both updates. Earlier audit entries above describe the pre-review snapshot.
+See [weekly report](weekly-report/report.md) for progress and remaining course tasks. Main at 0907c12 includes merged PRs #18 (elimination), #19 (winner detection), and #20 (weekly report). The local branch now includes these commits. These classes still need gameplay integration. Their original commits added no new tests or BVA. No changes have been pushed.
