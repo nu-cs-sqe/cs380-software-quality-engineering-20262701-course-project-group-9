@@ -104,7 +104,7 @@ final class ConsoleGame {
         Player donor = players.get(seat);
         clearScreen();
         output.println("Pass the keyboard to " + seatLabel(donor, seat) + ". Press Enter when ready.");
-        if (input.readLine() == null) {
+        if (!confirmHandoff()) {
             return;
         }
         List<String> hand = donor.getHand();
@@ -117,6 +117,17 @@ final class ConsoleGame {
             game.favor(seat, card - 1);
             output.println("Pass the keyboard back to " + actor.getName() + ".");
         }
+    }
+
+    private boolean confirmHandoff() throws IOException {
+        String line;
+        while ((line = input.readLine()) != null) {
+            if (line.isEmpty()) {
+                return true;
+            }
+            output.println("Press Enter without typing a choice.");
+        }
+        return false;
     }
 
     private String seatLabel(Player player, int seat) {
