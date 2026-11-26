@@ -1,42 +1,22 @@
-# Draft project board tasks
+# Group 9 project board
 
-These tasks are ready for team discussion but have not been posted to GitHub Projects. This update is staying local. The GitHub token checked earlier did not have read:project access.
+[Open the live board](https://github.com/orgs/nu-cs-sqe/projects/134). Isaiah maintains it for Group 9. Isaiah Hashimoto and Hanwen (Austin) Liu are the active team members. GitHub adds new repository issues to the board automatically. Use the board for current status and the issue for acceptance criteria, design notes, and the linked PR.
 
-## Integration testing
+| Work | Issue | Agreed responsibility |
+| --- | --- | --- |
+| Soundcheck | [#24](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/24) | Isaiah implemented the card. Austin was asked to review [PR #25](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/25). |
+| Austin’s original card | [#26](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/26) | Austin volunteered. Name, effect, and boundaries are his first design decisions. |
+| Additional win condition | [#27](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/27) | The team needs to agree on the trigger, tie handling, and implementer. |
+| English and Spanish | [#28](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/28) | Choose the implementer and translation reviewer. See the [language plan](../design/i18n-plan.md). |
+| Integration testing | [#29](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/29) | Agree on owners for two features and link each scenario to its tests and CI run. See the [test plan](../testing/integration-plan.md). |
+| Game setup and Canvas rules | [#30](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/30) | Isaiah checked the course rule sheet. The team should settle the setup edition before changing gameplay. |
+| Board and weekly report | [#31](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/31) | Isaiah is updating the board links and the [weekly report](../weekly-report/report.md). |
 
-**Owner:** To assign. **Status:** Needs team review.
+## How we use the board
 
-Review the [integration test plan](../testing/integration-plan.md). Setup tests IT01–IT04 are done. IT05–IT10 cover the interface, turns, Defuse and elimination, Attack/Skip, winning, and language changes.
+1. Write or pick an issue with an owner and acceptance criteria. Move it to Ready when the scope is agreed, then to In progress when work starts.
+2. For new behavior, document the boundaries, open a linked draft PR after the first commit, and run the failing tests before implementing the change.
+3. When the change passes its checks, move it to In review and request the other teammate’s review. Move it to Done when the accepted change reaches main.
+4. Link issues and PRs in the weekly report. Record what we planned, what landed, and what is still open.
 
-Agree on interfaces and assign the remaining tests. Record the discussion date and decisions, link the PRs and test results, and mark each scenario done when it passes. The later tests depend on the interface and turn engine.
-
-## Internationalization
-
-**Owner:** To assign. **Status:** Needs team review.
-
-Review the [i18n plan](../design/i18n-plan.md). At least two languages at game start are required for an A, and new locales must be easy to add without changing existing code (project grading rubric, page 3). English and Spanish are selected.
-
-Assign the implementation owner and translation reviewer. Add the resource files and planned tests, connect the language choice to setup, and check that translations do not change game state. Link the finished PR and test results.
-
-## Extra Defuse cards
-
-**Owner:** To assign. **Status:** Verify Canvas rule source, then check implementation.
-
-Our setup code returns all unused Defuse cards to the deck. The publisher's 2022 rules return only two extras for 2–3 players. We will follow the Canvas-linked rules. Verify that exact source before deciding whether this implementation needs changing. If we change the code, start with failing boundary tests and update the setup requirements and card-count checks.
-
-## Instructor meeting follow-up
-
-**Status:** Meeting complete; follow-up work remains.
-
-We met with Prof. Zhang on October 27. Isaiah attended from the start and Austin joined late. The instructor confirmed the required meeting was complete. See the [meeting notes](discussion-record.md).
-
-Next, agree on gameplay features, classes/methods, owners, deadlines, and reviewers. Put the tasks on the board with linked PRs and keep the weekly report updated.
-
-## Decisions already made
-
-- Exploding Kittens was agreed on October 25.
-- Austin volunteered for the weekly report on October 25.
-- On November 4–5, Austin took player initialization, Isaiah took deck setup, and Gabriel took card distribution.
-- We meet on Saturdays unless we have met on another day that week.
-
-Isaiah will manage the board. The interface will be command line, the languages English and Spanish, and the rules those linked in Canvas. Still needed: gameplay assignments and interfaces, integration test owners, translation review, and verification of the exact Canvas rule source.
+The [discussion record](discussion-record.md) preserves earlier assignments and the October 27 instructor meeting. The live board was established in Week 9.
