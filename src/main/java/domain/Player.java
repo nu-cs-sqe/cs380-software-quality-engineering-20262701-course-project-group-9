@@ -41,6 +41,10 @@ public final class Player {
         hand.add(card);
     }
 
+    String giveCardAt(int index) {
+        return hand.remove(index);
+    }
+
     boolean spend(String card) {
         return hand.remove(card);
     }

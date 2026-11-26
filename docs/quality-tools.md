@@ -39,3 +39,9 @@ Before elimination and playable turns, setup passed 98 tests and both linters. J
 `./gradlew clean build qualityCheck --continue --console=plain` passed all 125 tests. Checkstyle and SpotBugs each reported zero findings in main and test code. JaCoCo covered 270/274 lines, 117/118 branches, and 121/123 units of cyclomatic complexity. The two missed complexity units are in `Main.main` and `WinCondition.getWinner`.
 
 `ConsoleGame` covered 64/64 lines, 34/34 branches, and 25/25 complexity units. Its tests killed all 39 console mutants. Across the project PIT recorded 145 kills, one timeout in `Game.advance`, and two surviving shuffle removals in `CardDistribution`. The tests do not yet distinguish a shuffled deal from one that preserves the input order.
+
+## Favor verification (November 25, 2026)
+
+`./gradlew clean build qualityCheck --continue --console=plain` passed all 146 tests. Checkstyle and SpotBugs reported zero findings in both main and test code. JaCoCo covered 325/329 lines, 150/151 branches, and 145/147 complexity units across the project. The console covered 100/100 lines and 51/51 branches.
+
+PIT killed all 43 mutations in the new Favor methods. Across the project it recorded 189 kills, one timeout in `Game.advance`, and two surviving shuffle removals in `CardDistribution`. A five-player game launched through Gradle also completed a Favor exchange and returned the turn to the player who asked.

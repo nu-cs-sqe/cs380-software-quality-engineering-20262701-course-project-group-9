@@ -2,9 +2,9 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public final class Game {
@@ -67,6 +67,34 @@ public final class Game {
             player.receive(card);
         }
         advance();
+    }
+
+    public List<Integer> favorTargets() {
+        requireAction();
+        if (!players.get(current).getHand().contains("Favor")) {
+            throw new IllegalStateException("No Favor card");
+        }
+        List<Integer> seats = new ArrayList<>();
+        for (int seat = 0; seat < players.size(); seat++) {
+            Player target = players.get(seat);
+            if (seat != current && target.isAlive() && !target.getHand().isEmpty()) {
+                seats.add(seat);
+            }
+        }
+        return seats;
+    }
+
+    public void favor(int targetSeat, int cardIndex) {
+        if (!favorTargets().contains(targetSeat)) {
+            throw new IllegalArgumentException("Choose an opponent with a card");
+        }
+        Player target = players.get(targetSeat);
+        if (cardIndex < 0 || cardIndex >= target.getHand().size()) {
+            throw new IllegalArgumentException("Card outside target hand");
+        }
+        Player actor = players.get(current);
+        actor.spend("Favor");
+        actor.receive(target.giveCardAt(cardIndex));
     }
 
     public void skip() {
