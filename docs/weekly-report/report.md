@@ -81,3 +81,7 @@ After mutation testing we added regression checks for the prompts, Skip, and inv
 ### Team update, November 25
 
 Isaiah Hashimoto and Hanwen (Austin) Liu are the two active members of Group 9.
+
+### Favor, November 25
+
+PR #21 merged the playable CLI into `main`. On `feature/favor-card`, the [Favor boundary analysis](../bva/Favor.md) preceded 20 failing tests for the card and shared-keyboard interface. A later regression test reproduced premature handoff before the fix. The [clean quality run](../quality-tools.md) passed all 146 tests, and a five-player game exercised Favor through the normal launcher. Teammate review is pending.

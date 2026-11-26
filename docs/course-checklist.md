@@ -12,6 +12,6 @@
 | JaCoCo and PIT | Configured; [results and remaining mutants](quality-tools.md) documented | Investigate the two surviving shuffle mutations and the remaining domain coverage gap |
 | Integration tests | Local tests cover setup and playing turns through a winner | Review the [integration scenarios](testing/integration-plan.md) and assign the remaining work |
 | Internationalization | [Plan](design/i18n-plan.md) drafted | English/Spanish selected; assign implementation and translation review. A requires two languages at game start and easy addition of locales without changing existing code |
-| Finished product | Local CLI plays through the last-survivor win; 125 tests passed | Implement the remaining card effects, each member’s invented card, the additional win condition, and locale support |
+| Finished product | CLI plays through the last-survivor win. The Favor branch passed 146 tests | Implement the remaining card effects, each member’s invented card, the additional win condition, and locale support |
 
 The language and two-feature integration requirements above come from page 3 of the project grading rubric under A: Excellent. Week 7 also asks us to discuss both plans and document them on the project board. The plans are still awaiting team review and publication.
