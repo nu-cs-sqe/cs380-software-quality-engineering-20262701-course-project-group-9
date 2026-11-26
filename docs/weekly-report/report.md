@@ -4,7 +4,7 @@ We meet on Saturdays unless we have already met on another day that week. See th
 
 ## Week 3 (10/12–10/18)
 
-We still need to confirm the details of this week's requirements review, repository setup, and early planning.
+On October 18 we used [team Discord](https://discord.com/channels/1560122354753871912/1560122355588669505) to get everyone into the GitHub group. Austin requested access, Isaiah offered to add teammates by username, and Gabriel asked to be added. We also flagged that the Discord group number differed from the repo name. The [starter commit](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/commit/21ae445) added the Gradle project and reporting template that day. The template contains example tasks. We have no dated record of a Week 3 game choice or requirements-review meeting.
 
 ## Week 4 (10/19–10/25)
 
@@ -28,9 +28,9 @@ We still need to confirm the details of this week's requirements review, reposit
 
 ## Week 7 (11/09–11/15)
 
-- Gabriel's card distribution work was merged in PR #9.
-- Instructor feedback asked us to shorten the CardDistribution constructor and replace README TBD. Both have since been addressed.
-- We still need the specific planning decisions from this week's meeting.
+- On November 10 Gabriel’s [card distribution PR #9](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/9) merged. In [team Discord](https://discord.com/channels/1560122354753871912/1560122355588669505), Austin requested review on three PRs that day and followed up on November 15 because pending review was blocking the next step.
+- The November 12 instructor feedback called for a smaller card distribution constructor and the game name in the README ([initial feedback](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/commit/573f1f2), [follow-up](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/commit/654bf3c)). On November 15 [deck validation and its BVA/tests](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/commit/822cbd5) were committed. [PR #12](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/12) merged the following week.
+- These messages and commits establish the review bottleneck and the work completed. We have no dated record of a separate Week 7 planning meeting or additional assignments.
 
 ## Week 8 (11/16–11/22)
 
@@ -63,6 +63,12 @@ The combined local branch passed all 98 tests and both linters. JaCoCo reported 
 The setup requirements, design, BVA notes, meeting notes, and course checklist are written. The game still needs an interface and playable turns through a win condition.
 
 ## Week 9 (11/23–11/29)
+
+### Board, reviews and rules check, November 26
+
+Isaiah set up the [Group 9 board](https://github.com/orgs/nu-cs-sqe/projects/134) and linked it to the repo. The playable CLI, Favor, and Austin’s See the Future/Shuffle changes merged in [#21](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/21), [#22](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/22), and [#23](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/23). Austin addressed review feedback about clearing the private preview and checking Shuffle’s actual draw order. Soundcheck is tracked in [#24](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/24) with [PR #25](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/25) awaiting Austin’s review. Its issue and draft PR were opened after implementation. For the board and report update, [#31](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/31) was opened before editing and [draft PR #32](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/pull/32) after the first commit.
+
+Austin volunteered for [an original card](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/26). We still need to agree on credit for Skip, which was already on main, and agree on owners for the [additional win condition](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/27), [English/Spanish implementation and translation review](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/28), and [remaining integration work](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/29). Eight focused integration cases passed across game setup, Defuse, and the winner announcement. The [setup comparison](../requirements/game-rules.md) identifies an edition mismatch to resolve in [#30](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/30).
 
 ### Planning update, November 24
 

@@ -1,6 +1,6 @@
 # Integration testing plan
 
-The setup and console turn tests pass locally. The table records the scenarios covered and the work still open. We still need to review this plan together, assign owners, and post it to the project board.
+The setup and console turn tests pass locally. The table records the scenarios covered and the work still open. [Board issue #29](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/29) tracks team review, existing test evidence, and owners for the remaining scenarios.
 
 ## Scope and approach
 Run setup tests with the real classes so we check how they work together, including actual dealing. Use mocks or stubs for outside dependencies, such as input or storage, when needed.
@@ -25,5 +25,14 @@ Run `./gradlew test --tests ui.ConsoleGameTest` for the console scenarios. At `9
 
 For future randomized gameplay, inject a controlled shuffle/random source at the relevant boundary and test invariants plus deterministic scenarios; avoid flaky assertions that a random deck must differ on every run. Record seed and operation sequence when a randomized test fails.
 
+## Two feature checks from Week 9
+
+| Flow | Automated evidence | What we checked |
+| --- | --- | --- |
+| Setup through the first playable turn | [GameSetupTest.initializesRealComponentsTogether](../../src/test/java/domain/GameSetupTest.java) and [ConsoleGameTest.startsTwoPlayerGameAfterBadCountsAndSeats](../../src/test/java/ui/ConsoleGameTest.java) | The domain test connects setup components at each supported count. The CLI rejects bad counts and seats, accepts corrected input, and announces the first player's turn. |
+| Kitten draw, Defuse, and elimination | [ConsoleGameTest](../../src/test/java/ui/ConsoleGameTest.java), methods `defuseAcceptsEitherEndAfterRejectingInvalidPositions` and `skipThenKittenAnnouncesTheWinnerAndStopsReading` | Scripted console input drives the real game. The tests check both reinsertion boundaries, spending the Defuse, the surviving player, and that the CLI stops reading after the win. |
+
+The four named methods ran as eight JUnit cases on the implementation from `aae5422`. All eight passed with zero skips. [Issue #29](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/29) tracks teammate review and the CI evidence.
+
 ## Review and completion
-Before implementation: agree interfaces, document BVA, open draft PR, commit/run failing tests, implement minimal behavior, then run the suite. Each integration bug should yield a reproducing test and linked fix. Mark a feature done after its tests pass and a teammate reviews it. We still need owners for IT05–IT10 and a board entry. For an A, the grading rubric requires completed integration testing on at least two main features (page 3).
+Before implementation: agree interfaces, document BVA, open draft PR, commit/run failing tests, implement minimal behavior, then run the suite. Each integration bug should yield a reproducing test and linked fix. Mark a feature done after its tests pass and a teammate reviews it. Agree on owners for any remaining scenarios in [#29](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/29). For an A, the grading rubric requires completed integration testing on at least two main features (page 3).
