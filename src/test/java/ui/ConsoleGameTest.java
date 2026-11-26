@@ -131,8 +131,12 @@ class ConsoleGameTest {
         Game game = game(List.of("Soundcheck"), "Secret A", "Exploding Kitten", "Secret B");
         console(" SOUNDCHECK \ndraw\n").play(game);
         String text = transcript();
-        assertTrue(text.contains("favor, soundcheck, or hand"));
-        assertTrue(text.contains("A played Soundcheck. Exploding Kittens detected: 1"));
+        String[] lines = text.split("\\R");
+        for (String command : List.of("draw", "skip", "future", "shuffle", "favor", "soundcheck", "hand")) {
+            assertTrue(lines[0].contains(command), command);
+        }
+        assertEquals("A played Soundcheck. Exploding Kittens detected: 1", lines[1]);
+        assertEquals(lines[0], lines[2]);
         assertFalse(text.contains("Secret A"));
         assertFalse(text.contains("Secret B"));
         assertTrue(text.contains("A drew a card."));
