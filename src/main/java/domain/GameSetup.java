@@ -9,7 +9,7 @@ public final class GameSetup {
     private final TurnInitialization turns;
 
     public GameSetup(int count, List<String> names, int start) {
-        this(count, names, StandardDeck.createCards(), start);
+        this(count, names, createProjectDeck(), start);
     }
 
     public GameSetup(int count, List<String> names, List<String> deck, int start) {
@@ -21,6 +21,12 @@ public final class GameSetup {
         for (Player player : initializer.getPlayers()) {
             players.add(new Player(player.getId(), player.getName(), hands.get(player.getId())));
         }
+    }
+
+    private static List<String> createProjectDeck() {
+        List<String> cards = StandardDeck.createCards();
+        cards.add("Soundcheck");
+        return cards;
     }
 
     public List<Player> getPlayers() {

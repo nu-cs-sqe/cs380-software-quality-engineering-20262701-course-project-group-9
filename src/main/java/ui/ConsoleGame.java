@@ -52,7 +52,7 @@ final class ConsoleGame {
             Player player = game.getCurrentPlayer();
             output.println(
                 player.getName()
-                + "'s turn. Enter draw, skip, future, shuffle, or hand:"
+                + "'s turn. Enter draw, skip, future, shuffle, favor, soundcheck, or hand:"
             );
             String command = input.readLine();
             if (command == null) {
@@ -82,6 +82,10 @@ final class ConsoleGame {
                     break;
                 case "favor":
                     playFavor(game, player);
+                    break;
+                case "soundcheck":
+                    int count = game.soundcheck();
+                    output.println(player.getName() + " played Soundcheck. Exploding Kittens detected: " + count);
                     break;
                 case "draw":
                     game.draw();
