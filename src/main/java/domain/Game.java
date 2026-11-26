@@ -66,6 +66,13 @@ public final class Game {
         advance();
     }
 
+    public List<Integer> favorTargets() {
+        return List.of();
+    }
+
+    public void favor(int targetSeat, int cardIndex) {
+    }
+
     public void skip() {
         requireAction();
         if (!players.get(current).spend("Skip")) {

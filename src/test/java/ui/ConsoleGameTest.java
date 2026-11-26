@@ -34,6 +34,55 @@ class ConsoleGameTest {
     }
 
     @Test
+    void playingFavorLetsTheSelectedOpponentChooseAndTheActorContinue() throws IOException {
+        Game game = new Game(List.of(new Player(10, "A", List.of("Favor")),
+                new Player(20, "Twin", List.of("Secret B")),
+                new Player(30, "Twin", List.of("Skip", "Defuse"))), List.of("Drawn"), 0);
+        console("favor\n0\n2\n\n0\n2\ndraw\n").play(game);
+        String text = transcript();
+        assertTrue(text.contains("1. Twin (seat 2)"));
+        assertTrue(text.contains("2. Twin (seat 3)"));
+        int handoff = text.indexOf("Pass the keyboard to Twin (seat 3)");
+        assertTrue(handoff >= 0);
+        assertTrue(text.indexOf("1. Skip") > handoff);
+        assertTrue(text.indexOf("2. Defuse") > handoff);
+        assertTrue(text.indexOf("Pass the keyboard back to A") > text.indexOf("2. Defuse"));
+        assertTrue(text.contains("Enter a number from 1 to 2"));
+        assertFalse(text.contains("Secret B"));
+        assertEquals(List.of("Defuse", "Drawn"), game.getPlayers().get(0).getHand());
+        assertEquals(List.of("Secret B"), game.getPlayers().get(1).getHand());
+        assertEquals(List.of("Skip"), game.getPlayers().get(2).getHand());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"favor\n", "favor\n1\n", "favor\n1\n\n", "favor\n1\n\nx\n"})
+    void interruptedFavorPreservesBothHands(String script) throws IOException {
+        Game game = new Game(List.of(new Player(0, "A", List.of("Favor")),
+                new Player(1, "B", List.of("Defuse"))), List.of("Skip"), 0);
+        console(script).play(game);
+        assertTrue(transcript().contains("1. B (seat 2)"));
+        assertEquals(script.contains("\n\n"), transcript().contains("1. Defuse"));
+        assertFalse(transcript().contains("Pass the keyboard back"));
+        assertEquals(List.of("Favor"), game.getCurrentPlayer().getHand());
+        assertEquals(List.of("Defuse"), game.getPlayers().get(1).getHand());
+    }
+
+    @Test
+    void unheldFavorReportsTheMissingCard() throws IOException {
+        console("favor\n").play(game(List.of("Skip"), "Drawn"));
+        assertTrue(transcript().contains("No Favor card"));
+    }
+
+    @Test
+    void unavailableFavorTargetLeavesTheCardAndTurnAvailable() throws IOException {
+        Game game = game(List.of("Favor"), "Drawn");
+        console("favor\ndraw\n").play(game);
+        assertTrue(transcript().contains("No opponent can give a card."));
+        assertFalse(transcript().contains("Pass the keyboard"));
+        assertEquals(List.of("Favor", "Drawn"), game.getPlayers().get(0).getHand());
+    }
+
+    @Test
     void skipThenKittenAnnouncesTheWinnerAndStopsReading() throws IOException {
         Game game = game(List.of("Skip"), "Exploding Kitten");
         console("skip\ndraw\nunused\n").play(game);
