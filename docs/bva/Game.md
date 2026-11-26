@@ -17,3 +17,5 @@ This slice connects setup to drawing, Skip, Defuse, elimination, and winning. Ot
 | Pending kitten while also holding Skip | Reject Skip and preserve both cards and the pending decision |
 
 Game takes a GameSetup or deterministic player/deck/start inputs for tests. It owns copies of players and cards. Read methods return snapshots. The CLI only prompts, parses, and displays. No new PR is opened while the user's no-push instruction is active. New turn behavior follows local test-first commits.
+
+The [Favor analysis](Favor.md) covers `Game.favorTargets()` and `Game.favor(int, int)`.

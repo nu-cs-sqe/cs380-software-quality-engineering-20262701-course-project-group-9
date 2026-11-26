@@ -16,4 +16,5 @@ The general documentation requirements remain in [README](README.md). Implemente
 
 - [Elimination and winner regression coverage](EliminationAndWinner.md)
 - [Drawing, Skip and Defuse](Game.md)
+- [Favor transfers and shared-keyboard choices](Favor.md)
 - [Command-line setup and turn inputs](ConsoleGame.md)
