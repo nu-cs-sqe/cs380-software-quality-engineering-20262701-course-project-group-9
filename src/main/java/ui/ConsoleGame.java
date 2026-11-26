@@ -50,7 +50,10 @@ final class ConsoleGame {
                 continue;
             }
             Player player = game.getCurrentPlayer();
-            output.println(player.getName() + "'s turn. Enter draw, skip, or hand:");
+            output.println(
+                player.getName()
+                + "'s turn. Enter draw, skip, future, shuffle, or hand:"
+            );
             String command = input.readLine();
             if (command == null) {
                 return;
@@ -69,6 +72,14 @@ final class ConsoleGame {
                 case "skip":
                     game.skip();
                     output.println(player.getName() + " played Skip.");
+                    break;
+                case "future":
+                    List<String> future = game.seeTheFuture();
+                    output.println("Future cards: " + future);
+                    break;
+                case "shuffle":
+                    game.shuffle();
+                    output.println(player.getName() + " played Shuffle.");
                     break;
                 case "draw":
                     game.draw();

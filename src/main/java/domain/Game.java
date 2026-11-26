@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -72,6 +75,46 @@ public final class Game {
             throw new IllegalStateException("No Skip card");
         }
         advance();
+    }
+
+    public List<String> seeTheFuture() {
+    requireAction();
+
+    Player player = players.get(current);
+
+    if (!player.spend("See the Future")) {
+        throw new IllegalStateException(
+            "No See the Future card"
+        );
+    }
+
+    int numberOfCards = Math.min(3, deck.size());
+
+    return new ArrayList<>(deck.subList(0, numberOfCards));
+    }
+
+    public void shuffle() {
+    shuffle(new Random());
+}
+
+    public void shuffle(Random random) {
+    requireAction();
+
+    if (random == null) {
+        throw new IllegalArgumentException(
+            "Random must not be null"
+        );
+    }
+
+    Player player = players.get(current);
+
+    if (!player.spend("Shuffle")) {
+        throw new IllegalStateException(
+            "No Shuffle card"
+        );
+    }
+
+    Collections.shuffle(deck, random);
     }
 
     public void reinsertKitten(int position) {
