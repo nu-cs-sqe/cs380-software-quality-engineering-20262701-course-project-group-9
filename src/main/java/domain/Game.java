@@ -97,6 +97,10 @@ public final class Game {
         actor.receive(target.giveCardAt(cardIndex));
     }
 
+    public int soundcheck() {
+        throw new UnsupportedOperationException("Soundcheck pending");
+    }
+
     public void skip() {
         requireAction();
         if (!players.get(current).spend("Skip")) {

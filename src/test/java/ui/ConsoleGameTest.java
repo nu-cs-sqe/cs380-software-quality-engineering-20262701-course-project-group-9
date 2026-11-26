@@ -127,6 +127,28 @@ class ConsoleGameTest {
     }
 
     @Test
+    void soundcheckAnnouncesOnlyTheCountAndLetsTheSamePlayerDraw() throws IOException {
+        Game game = game(List.of("Soundcheck"), "Secret A", "Exploding Kitten", "Secret B");
+        console(" SOUNDCHECK \ndraw\n").play(game);
+        String text = transcript();
+        assertTrue(text.contains("favor, soundcheck, or hand"));
+        assertTrue(text.contains("A played Soundcheck. Exploding Kittens detected: 1"));
+        assertFalse(text.contains("Secret A"));
+        assertFalse(text.contains("Secret B"));
+        assertTrue(text.contains("A drew a card."));
+        assertEquals(List.of("Secret A"), game.getPlayers().get(0).getHand());
+        assertEquals("B", game.getCurrentPlayer().getName());
+    }
+
+    @Test
+    void missingSoundcheckAllowsAnotherCommand() throws IOException {
+        Game game = game(List.of("Favor"), "Skip");
+        console("soundcheck\ndraw\n").play(game);
+        assertTrue(transcript().contains("No Soundcheck card"));
+        assertEquals(List.of("Favor", "Skip"), game.getPlayers().get(0).getHand());
+    }
+
+    @Test
     void skipThenKittenAnnouncesTheWinnerAndStopsReading() throws IOException {
         Game game = game(List.of("Skip"), "Exploding Kitten");
         console("skip\ndraw\nunused\n").play(game);
