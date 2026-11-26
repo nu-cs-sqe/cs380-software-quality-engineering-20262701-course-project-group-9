@@ -50,7 +50,7 @@ final class ConsoleGame {
                 continue;
             }
             Player player = game.getCurrentPlayer();
-            output.println(player.getName() + "'s turn. Enter draw, skip, or hand:");
+            output.println(player.getName() + "'s turn. Enter draw, skip, favor, or hand:");
             String command = input.readLine();
             if (command == null) {
                 return;
@@ -60,7 +60,7 @@ final class ConsoleGame {
         output.println(game.getWinner().orElseThrow().getName() + " wins!");
     }
 
-    private void takeAction(Game game, Player player, String command) {
+    private void takeAction(Game game, Player player, String command) throws IOException {
         try {
             switch (command.trim().toLowerCase(Locale.ROOT)) {
                 case "hand":
@@ -69,6 +69,9 @@ final class ConsoleGame {
                 case "skip":
                     game.skip();
                     output.println(player.getName() + " played Skip.");
+                    break;
+                case "favor":
+                    playFavor(game, player);
                     break;
                 case "draw":
                     game.draw();
@@ -80,6 +83,48 @@ final class ConsoleGame {
         } catch (IllegalStateException invalidMove) {
             output.println(invalidMove.getMessage());
         }
+    }
+
+    private void playFavor(Game game, Player actor) throws IOException {
+        List<Integer> seats = game.favorTargets();
+        if (seats.isEmpty()) {
+            output.println("No opponent can give a card.");
+            return;
+        }
+        List<Player> players = game.getPlayers();
+        for (int i = 0; i < seats.size(); i++) {
+            int seat = seats.get(i);
+            output.println((i + 1) + ". " + seatLabel(players.get(seat), seat));
+        }
+        Integer choice = readNumber("Choose an opponent.", 1, seats.size());
+        if (choice == null) {
+            return;
+        }
+        int seat = seats.get(choice - 1);
+        Player donor = players.get(seat);
+        clearScreen();
+        output.println("Pass the keyboard to " + seatLabel(donor, seat) + ". Press Enter when ready.");
+        if (input.readLine() == null) {
+            return;
+        }
+        List<String> hand = donor.getHand();
+        for (int i = 0; i < hand.size(); i++) {
+            output.println((i + 1) + ". " + hand.get(i));
+        }
+        Integer card = readNumber("Choose the card to give.", 1, hand.size());
+        clearScreen();
+        if (card != null) {
+            game.favor(seat, card - 1);
+            output.println("Pass the keyboard back to " + actor.getName() + ".");
+        }
+    }
+
+    private String seatLabel(Player player, int seat) {
+        return player.getName() + " (seat " + (seat + 1) + ")";
+    }
+
+    private void clearScreen() {
+        output.print("\033[2J\033[H");
     }
 
     private void showDrawResult(Game game, Player player) {
