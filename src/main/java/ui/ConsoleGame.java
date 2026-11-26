@@ -50,7 +50,10 @@ final class ConsoleGame {
                 continue;
             }
             Player player = game.getCurrentPlayer();
-            output.println(player.getName() + "'s turn. Enter draw, skip, favor, or hand:");
+            output.println(
+                player.getName()
+                + "'s turn. Enter draw, skip, future, shuffle, or hand:"
+            );
             String command = input.readLine();
             if (command == null) {
                 return;
@@ -70,6 +73,13 @@ final class ConsoleGame {
                     game.skip();
                     output.println(player.getName() + " played Skip.");
                     break;
+                case "future":
+                    playSeeTheFuture(game);
+                    break;
+                case "shuffle":
+                    game.shuffle();
+                    output.println(player.getName() + " played Shuffle.");
+                    break;
                 case "favor":
                     playFavor(game, player);
                     break;
@@ -83,6 +93,22 @@ final class ConsoleGame {
         } catch (IllegalStateException invalidMove) {
             output.println(invalidMove.getMessage());
         }
+    }
+    private void playSeeTheFuture(Game game) throws IOException {
+    List<String> future = game.seeTheFuture();
+
+    output.println("Future cards: " + future);
+    output.println("Press Enter to hide the cards.");
+
+    String line;
+    while ((line = input.readLine()) != null) {
+        if (line.isEmpty()) {
+            break;
+        }
+        output.println("Press Enter without typing anything.");
+    }
+
+    clearScreen();
     }
 
     private void playFavor(Game game, Player actor) throws IOException {
