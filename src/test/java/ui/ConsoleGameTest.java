@@ -83,6 +83,21 @@ class ConsoleGameTest {
     }
 
     @Test
+    void privateFavorChoicesAreClearedAtEachKeyboardHandoff() throws IOException {
+        Game game = new Game(List.of(new Player(0, "A", List.of("Favor")),
+                new Player(1, "B", List.of("Gift"))), List.of("Drawn"), 0);
+        console("favor\n1\n1\n\n1\n").play(game);
+        String text = transcript();
+        String clear = "\033[2J\033[H";
+        assertTrue(text.contains(clear + "Pass the keyboard to B"));
+        int retry = text.indexOf("Press Enter without typing a choice.");
+        assertTrue(retry >= 0);
+        assertTrue(text.indexOf("1. Gift") > retry);
+        assertTrue(text.contains(clear + "Pass the keyboard back to A"));
+        assertEquals(List.of("Gift"), game.getCurrentPlayer().getHand());
+    }
+
+    @Test
     void skipThenKittenAnnouncesTheWinnerAndStopsReading() throws IOException {
         Game game = game(List.of("Skip"), "Exploding Kitten");
         console("skip\ndraw\nunused\n").play(game);
