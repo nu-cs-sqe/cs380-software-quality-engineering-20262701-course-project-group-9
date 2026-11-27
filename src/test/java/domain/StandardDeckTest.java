@@ -63,9 +63,10 @@ class StandardDeckTest {
                 expected.merge(card, 1, Integer::sum);
             }
             expected.put("Exploding Kitten", count - 1);
+            expected.put("Soundcheck", 1);
             assertEquals(expected, combined);
             assertEquals(count - 1, Collections.frequency(game.getDrawPile(), "Exploding Kitten"));
-            assertEquals(51 - 7 * count, game.getDrawPile().size());
+            assertEquals(52 - 7 * count, game.getDrawPile().size());
             assertEquals(start, game.getCurrentPlayerIndex());
         }
     }

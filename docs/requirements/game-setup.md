@@ -15,14 +15,14 @@ The criteria below describe the current implementation. The [Canvas rule compari
 | S05 | Shuffle ordinary cards before dealing and draw pile after assembling | Calls present in CardDistribution; distribution tests do not prove randomness |
 | S06 | Starting index must be 0 through N-1; cyclic order starts at that index | TurnInitializationTest |
 | S07 | Returned lists and caller-owned input lists cannot mutate stored setup | GameSetupTest; PlayerInitializerTest |
-| S08 | Default constructor uses the full 56-card deck | StandardDeckTest |
+| S08 | Default setup adds one Soundcheck to the 56-card Original Edition inventory before dealing | StandardDeckTest |
 
 ## Use case: start a game
 Actor: player. Precondition: a future interface has collected count, ordered names, and starting index. Current domain API can be invoked directly by tests.
 
 1. Interface invokes GameSetup(count, names, start).
 2. System validates player count/names and starting index.
-3. System creates the standard deck, separates special cards, shuffles ordinary cards, and deals hands.
+3. System adds one Soundcheck to the standard deck, separates special cards, shuffles ordinary cards, and deals hands.
 4. System assembles/shuffles the remaining pile with N-1 kittens.
 5. System returns aligned players, initial hands, draw pile, and cyclic turn order.
 
