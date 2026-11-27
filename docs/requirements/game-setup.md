@@ -3,6 +3,8 @@
 ## User story
 As a player, I want setup to create the players, distribute cards, and select a starting turn so that play can begin without manually organizing the deck.
 
+The criteria below describe the current implementation. The [Canvas rule comparison](game-rules.md) and [issue #30](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/30) track the differences in player count, deck, hand size, and the timing of spare Defuses.
+
 ## Acceptance criteria
 | ID | Requirement | Evidence |
 | --- | --- | --- |

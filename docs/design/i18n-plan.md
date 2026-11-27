@@ -33,4 +33,4 @@ Keep console prompts readable when translated text is longer. Format numbers in 
 | I18N05 | Use names such as José and 美咲 | Characters are preserved |
 | I18N06 | Display longer translated labels | Console prompts remain readable; check manually |
 
-All six tests are planned. Write the translation tests first, add the resource files and lookup code, then connect the interface. A teammate should check the translations. We still need an implementation owner and translation reviewer before posting the [board task](../project-management/board-items.md).
+All six tests are planned. Write the translation tests first, add the resource files and lookup code, then connect the interface. A teammate should check the translations. [Board issue #28](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/28) records the acceptance criteria. The team still needs to choose the implementation owner and Spanish reviewer.

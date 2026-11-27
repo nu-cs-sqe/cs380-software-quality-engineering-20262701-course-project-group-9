@@ -48,8 +48,8 @@ Isaiah reported the following choices:
 - Support English and Spanish.
 - Isaiah will manage the project board.
 
-We still need to verify the exact Canvas rules link against the rule sheet already referenced in this repository. Then check the implementation against that version, including extra Defuse cards and card combinations.
+On November 26 Isaiah verified the exact Canvas link. The [comparison](../requirements/game-rules.md) and [issue #30](https://github.com/nu-cs-sqe/cs380-software-quality-engineering-20262701-course-project-group-9/issues/30) record the differences between Grab & Game and the current setup.
 
 ## Next team discussion
 
-Agree on the gameplay classes and methods, task owners, deadlines, and reviewers. Assign integration tests and a translation reviewer. Isaiah will maintain the board. See the [draft board tasks](board-items.md).
+Agree on the gameplay classes and methods, task owners, deadlines, and reviewers. Assign integration tests and a translation reviewer. Isaiah will maintain the board. See the [live board and issues](board-items.md).
