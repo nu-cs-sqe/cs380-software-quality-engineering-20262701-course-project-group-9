@@ -97,6 +97,15 @@ public final class Game {
         actor.receive(target.giveCardAt(cardIndex));
     }
 
+    public int soundcheck() {
+        requireAction();
+        if (!players.get(current).spend("Soundcheck")) {
+            throw new IllegalStateException("No Soundcheck card");
+        }
+        int end = Math.min(5, deck.size());
+        return Collections.frequency(deck.subList(0, end), "Exploding Kitten");
+    }
+
     public void skip() {
         requireAction();
         if (!players.get(current).spend("Skip")) {

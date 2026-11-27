@@ -85,3 +85,7 @@ Isaiah Hashimoto and Hanwen (Austin) Liu are the two active members of Group 9.
 ### Favor, November 25
 
 PR #21 merged the playable CLI into `main`. On `feature/favor-card`, the [Favor boundary analysis](../bva/Favor.md) preceded 20 failing tests for the card and shared-keyboard interface. A later regression test reproduced premature handoff before the fix. The [clean quality run](../quality-tools.md) passed all 146 tests, and a five-player game exercised Favor through the normal launcher. Teammate review is pending.
+
+### Soundcheck, November 25
+
+PRs #22 and #23 merged Favor, See the Future, and Shuffle. The Soundcheck feature branch adds an original card with a public count of kittens near the top of the pile. The [boundary analysis](../bva/Soundcheck.md) came first (`d7bd436`), followed by 15 failing cases (`ed4cd61`) and the implementation (`9e5e975`). All 171 tests passed in the clean quality run. Checkstyle and SpotBugs reported zero findings. A five-player game exercised the new card through the Gradle launcher.
