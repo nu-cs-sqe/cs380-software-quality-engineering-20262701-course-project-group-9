@@ -106,6 +106,26 @@ public final class Game {
         return Collections.frequency(deck.subList(0, end), "Exploding Kitten");
     }
 
+    public void secondChance() {
+         requireAction();
+
+         Player player = players.get(current);
+
+         if (!player.getHand().contains("Second Chance")) {
+             throw new IllegalStateException("No Second Chance card");
+         }
+
+         if (deck.isEmpty()) {
+             throw new IllegalStateException("Draw pile is empty");
+         }
+
+         player.spend("Second Chance");
+
+         String topCard = deck.remove(0);
+         deck.add(topCard);
+    }
+
+
     public void skip() {
         requireAction();
         if (!players.get(current).spend("Skip")) {

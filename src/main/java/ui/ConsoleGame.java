@@ -1,3 +1,4 @@
+
 package ui;
 
 import domain.Game;
@@ -24,16 +25,23 @@ final class ConsoleGame {
         if (count == null) {
             return;
         }
+
         List<String> names = new ArrayList<>();
         for (int seat = 1; seat <= count; seat++) {
-            output.println("Name for player " + seat + " (leave blank for the default):");
+            output.println("Name for player " + seat
+                    + " (leave blank for the default):");
+
             String name = input.readLine();
             if (name == null) {
                 return;
             }
             names.add(name);
         }
-        Integer first = readNumber("Which player goes first? Enter their seat number.", 1, count);
+
+        Integer first = readNumber(
+                "Which player goes first? Enter their seat number.",
+                1, count);
+
         if (first != null) {
             play(new Game(new GameSetup(count, names, first - 1)));
         }
@@ -42,55 +50,83 @@ final class ConsoleGame {
     void play(Game game) throws IOException {
         while (game.getWinner().isEmpty()) {
             if (game.needsReinsertion()) {
-                Integer position = readNumber("Reinsert the kitten (0 is the top).", 0, game.getDrawPileSize());
+                Integer position = readNumber(
+                        "Reinsert the kitten (0 is the top).",
+                        0, game.getDrawPileSize());
+
                 if (position == null) {
                     return;
                 }
+
                 game.reinsertKitten(position);
                 continue;
             }
+
             Player player = game.getCurrentPlayer();
+
             output.println(
-                player.getName()
-                + "'s turn. Enter draw, skip, future, shuffle, favor, soundcheck, or hand:"
-            );
+                    player.getName()
+                    + "'s turn. Enter draw, skip, future, shuffle, "
+                    + "favor, soundcheck, second, or hand:");
+
             String command = input.readLine();
             if (command == null) {
                 return;
             }
+
             takeAction(game, player, command);
         }
-        output.println(game.getWinner().orElseThrow().getName() + " wins!");
+
+        output.println(
+                game.getWinner().orElseThrow().getName() + " wins!");
     }
 
-    private void takeAction(Game game, Player player, String command) throws IOException {
+    private void takeAction(
+            Game game, Player player, String command) throws IOException {
         try {
             switch (command.trim().toLowerCase(Locale.ROOT)) {
                 case "hand":
                     output.println("Hand: " + player.getHand());
                     break;
+
                 case "skip":
                     game.skip();
                     output.println(player.getName() + " played Skip.");
                     break;
+
                 case "future":
                     playSeeTheFuture(game);
                     break;
+
                 case "shuffle":
                     game.shuffle();
-                    output.println(player.getName() + " played Shuffle.");
+                    output.println(
+                            player.getName() + " played Shuffle.");
                     break;
+
                 case "favor":
                     playFavor(game, player);
                     break;
+
                 case "soundcheck":
                     int count = game.soundcheck();
-                    output.println(player.getName() + " played Soundcheck. Exploding Kittens detected: " + count);
+                    output.println(
+                            player.getName()
+                            + " played Soundcheck. Exploding Kittens detected: "
+                            + count);
                     break;
+
+                case "second":
+                    game.secondChance();
+                    output.println(
+                            player.getName() + " played Second Chance.");
+                    break;
+
                 case "draw":
                     game.draw();
                     showDrawResult(game, player);
                     break;
+
                 default:
                     output.println("Unknown command.");
             }
@@ -98,65 +134,88 @@ final class ConsoleGame {
             output.println(invalidMove.getMessage());
         }
     }
+
     private void playSeeTheFuture(Game game) throws IOException {
-    List<String> future = game.seeTheFuture();
+        List<String> future = game.seeTheFuture();
 
-    output.println("Future cards: " + future);
-    output.println("Press Enter to hide the cards.");
+        output.println("Future cards: " + future);
+        output.println("Press Enter to hide the cards.");
 
-    String line;
-    while ((line = input.readLine()) != null) {
-        if (line.isEmpty()) {
-            break;
+        String line;
+        while ((line = input.readLine()) != null) {
+            if (line.isEmpty()) {
+                break;
+            }
+            output.println("Press Enter without typing anything.");
         }
-        output.println("Press Enter without typing anything.");
-    }
 
-    clearScreen();
+        clearScreen();
     }
 
     private void playFavor(Game game, Player actor) throws IOException {
         List<Integer> seats = game.favorTargets();
+
         if (seats.isEmpty()) {
             output.println("No opponent can give a card.");
             return;
         }
+
         List<Player> players = game.getPlayers();
+
         for (int i = 0; i < seats.size(); i++) {
             int seat = seats.get(i);
-            output.println((i + 1) + ". " + seatLabel(players.get(seat), seat));
+            output.println(
+                    (i + 1) + ". " + seatLabel(players.get(seat), seat));
         }
-        Integer choice = readNumber("Choose an opponent.", 1, seats.size());
+
+        Integer choice = readNumber(
+                "Choose an opponent.", 1, seats.size());
+
         if (choice == null) {
             return;
         }
+
         int seat = seats.get(choice - 1);
         Player donor = players.get(seat);
+
         clearScreen();
-        output.println("Pass the keyboard to " + seatLabel(donor, seat) + ". Press Enter when ready.");
+        output.println(
+                "Pass the keyboard to "
+                + seatLabel(donor, seat)
+                + ". Press Enter when ready.");
+
         if (!confirmHandoff()) {
             return;
         }
+
         List<String> hand = donor.getHand();
+
         for (int i = 0; i < hand.size(); i++) {
             output.println((i + 1) + ". " + hand.get(i));
         }
-        Integer card = readNumber("Choose the card to give.", 1, hand.size());
+
+        Integer card = readNumber(
+                "Choose the card to give.", 1, hand.size());
+
         clearScreen();
+
         if (card != null) {
             game.favor(seat, card - 1);
-            output.println("Pass the keyboard back to " + actor.getName() + ".");
+            output.println(
+                    "Pass the keyboard back to " + actor.getName() + ".");
         }
     }
 
     private boolean confirmHandoff() throws IOException {
         String line;
+
         while ((line = input.readLine()) != null) {
             if (line.isEmpty()) {
                 return true;
             }
             output.println("Press Enter without typing a choice.");
         }
+
         return false;
     }
 
@@ -170,16 +229,25 @@ final class ConsoleGame {
 
     private void showDrawResult(Game game, Player player) {
         if (game.needsReinsertion()) {
-            output.println(player.getName() + " drew an Exploding Kitten and can use Defuse.");
+            output.println(
+                    player.getName()
+                    + " drew an Exploding Kitten and can use Defuse.");
             return;
         }
+
         boolean eliminated = game.getPlayers().stream()
-                .anyMatch(p -> p.getId() == player.getId() && !p.isAlive());
-        output.println(player.getName() + (eliminated ? " was eliminated." : " drew a card."));
+                .anyMatch(p -> p.getId() == player.getId()
+                        && !p.isAlive());
+
+        output.println(
+                player.getName()
+                + (eliminated ? " was eliminated." : " drew a card."));
     }
 
-    private Integer readNumber(String prompt, int low, int high) throws IOException {
+    private Integer readNumber(
+            String prompt, int low, int high) throws IOException {
         output.println(prompt + " (" + low + "-" + high + ")");
+
         String line;
         while ((line = input.readLine()) != null) {
             try {
@@ -188,10 +256,14 @@ final class ConsoleGame {
                     return value;
                 }
             } catch (NumberFormatException ignored) {
-                // Invalid text and out-of-range numbers use the same retry prompt.
+                // Invalid text and out-of-range numbers
+                // use the same retry prompt.
             }
-            output.println("Enter a number from " + low + " to " + high + ".");
+
+            output.println(
+                    "Enter a number from " + low + " to " + high + ".");
         }
+
         return null;
     }
 }
