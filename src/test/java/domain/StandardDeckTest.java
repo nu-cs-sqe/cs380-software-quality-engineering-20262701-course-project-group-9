@@ -64,9 +64,10 @@ class StandardDeckTest {
             }
             expected.put("Exploding Kitten", count - 1);
             expected.put("Soundcheck", 1);
+            expected.put("Second Chance", 1);
             assertEquals(expected, combined);
             assertEquals(count - 1, Collections.frequency(game.getDrawPile(), "Exploding Kitten"));
-            assertEquals(52 - 7 * count, game.getDrawPile().size());
+            assertEquals(53 - 7 * count, game.getDrawPile().size());
             assertEquals(start, game.getCurrentPlayerIndex());
         }
     }

@@ -239,4 +239,56 @@ class ConsoleGameTest {
         assertTrue(transcript().contains("Name for player 2"));
         assertFalse(transcript().contains("'s turn"));
     }
+
+    @Test
+    void secondChanceWorksThroughConsole() throws IOException {
+        Game game = game(
+                List.of("Second Chance"),
+                "Attack", "Skip"
+        );
+
+        console("second\ndraw\n").play(game);
+
+        String text = transcript();
+
+        assertTrue(text.contains("A played Second Chance."));
+        assertTrue(text.contains("A drew a card."));
+
+        // The original top card moves to the bottom.
+        // Alice draws Skip instead of Attack.
+        assertEquals(
+                List.of("Skip"),
+                game.getPlayers().get(0).getHand()
+        );
+
+        // One card remains and the turn advances after drawing.
+        assertEquals(1, game.getDrawPileSize());
+        assertEquals(1, game.getCurrentPlayer().getId());
+    }
+
+    @Test
+    void missingSecondChanceAllowsRetry() throws IOException {
+        Game game = game(
+                List.of("Skip"),
+                "Attack"
+        );
+
+        console("second\ndraw\n").play(game);
+
+        String text = transcript();
+
+        // Missing card should produce an error.
+        assertTrue(text.contains("No Second Chance card"));
+
+        // Player may draw normally after the invalid action.
+        assertTrue(text.contains("A drew a card."));
+
+        assertEquals(
+                List.of("Skip", "Attack"),
+                game.getPlayers().get(0).getHand()
+        );
+
+        assertEquals(1, game.getCurrentPlayer().getId());
+    }
+
 }

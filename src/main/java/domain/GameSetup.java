@@ -26,8 +26,10 @@ public final class GameSetup {
     private static List<String> createProjectDeck() {
         List<String> cards = StandardDeck.createCards();
         cards.add("Soundcheck");
+        cards.add("Second Chance");
         return cards;
     }
+
 
     public List<Player> getPlayers() {
         return new ArrayList<>(players);
