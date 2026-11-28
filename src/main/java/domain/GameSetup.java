@@ -23,7 +23,6 @@ public final class GameSetup {
         }
     }
 
-    
     private static List<String> createProjectDeck() {
         List<String> cards = StandardDeck.createCards();
         cards.add("Soundcheck");
